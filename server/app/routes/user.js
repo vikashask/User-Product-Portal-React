@@ -32,8 +32,34 @@ function postUser(req, res) {
     );
 }
 
+function login(req, res) {
+console.log(req.body,'login data---');
+    User.find({email:req.body.email,password:req.body.password},(function(error,data){
+        res.json(data);
+    }));
+}
+
+function register(req, res) {
+    // create new user
+    let newUser = new User(req.body);
+    // save it into DB
+    newUser.save(
+        (err, user) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send({
+                    message: "User addd!",
+                    user
+                });
+            }
+        }
+    );
+}
 
 module.exports = {
     getUsers,
+    login,
+    register,
     postUser
 };
