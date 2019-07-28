@@ -14,6 +14,26 @@ function getUsers(req, res) {
     });
 }
 
+function postUser(req, res) {
+    // create new user
+    let newUser = new User(req.body);
+    // save it into DB
+    newUser.save(
+        (err, user) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send({
+                    message: "User addd!",
+                    user
+                });
+            }
+        }
+    );
+}
+
+
 module.exports = {
     getUsers,
+    postUser
 };
