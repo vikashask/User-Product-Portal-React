@@ -5,7 +5,8 @@ Create a User-Product portal
 
 2. Once a user login successfully, then
 
-i.              user should be able to see list of the products on the landing page and also search for specific products.
+> user should be able to see list of the products on the landing page and also search for specific products.
+
 ii.             user should be able to create new products
 iii.            user should be able to edit or delete owned products.
 iv.           user should be able to edit own details.
