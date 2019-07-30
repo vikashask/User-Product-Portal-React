@@ -50,7 +50,11 @@ app.get("/", (req, res) => res.json({
 
 app.route("/user")
     .get(user.getUsers)
-    .post(user.postUser);
+    .post(user.postUser)
+    .put(user.editUser)
+    .delete(user.deleteUser);
+
+app.get('/userbyid/:id', user.userbyid);
 
 app.route("/login")
     .post(user.login);
