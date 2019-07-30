@@ -86,6 +86,61 @@ let postUser = async (req, res) => {
 
 }
 
+function login(req, res) {
+    try {
+        console.log(req.body, 'login data---');
+        User.find({
+            email: req.body.email,
+            password: req.body.password
+        }, (function (error, data) {
+            res.json(data);
+        }));
+    } catch (e) {
+        console.log("error", e);
+        res.send({
+            error: e,
+        });
+    }
+
+}
+
+let register = async (req, res) => {
+    try {
+        let userData = await User.findOne({
+            email: req.body.email,
+            password: req.body.password
+        });
+        if (userData) {
+            res.send({
+                message: "Email is exist! try with another email",
+            });
+        } else {
+            // create new user
+            let newUser = new User(req.body);
+            // saveing heres
+            newUser.save(
+                (err, user) => {
+                    if (err) {
+                        res.send(err);
+                    } else {
+                        res.send({
+                            message: "User addd!",
+                            user
+                        });
+                    }
+                }
+            );
+        }
+    } catch (e) {
+        console.log("error", e);
+        res.send({
+            error: e,
+        });
+    }
+
+}
+
+
 module.exports = {
     getUsers,
     login,
