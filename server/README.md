@@ -1,5 +1,6 @@
-# task
-Create a User-Product portal
+## task
+
+## Create a User-Product portal
 
 1. Landing page should have login screen : Login - A register user will login with his credentials Or user will sign up
 
@@ -7,41 +8,51 @@ Create a User-Product portal
 
 > user should be able to see list of the products on the landing page and also search for specific products.
 
-ii.             user should be able to create new products
-iii.            user should be able to edit or delete owned products.
-iv.           user should be able to edit own details.
-v.            user should be able to see other user details but cannot edit or delete
-vi.           user should be able to see products created by other user but cannot edit or delete
+> user should be able to create new products
+
+> user should be able to edit or delete owned products.
+
+> user should be able to edit own details.
+
+> user should be able to see other user details but cannot edit or delete
+
+> user should be able to see products created by other user but cannot edit or delete
               
 3. Error Handling implementation for the above 
 
 REST API (services) details:
 
-CRUD operation for User
+## CRUD operation for User
+> create User
 
-I.	create User
-II.	list users
-III.	get single user resource by Id
-IV.	edit user
-V.	delete user
+> list users
 
+> get single user resource by Id
 
-CRUD operation for Advertisement
+> edit user
 
-I.	create product
-II.	list products
-III.	get single product resource by Id
-IV.	edit products
-V.	delete products
+> delete user
 
+## CRUD operation for Advertisement
+> create product
 
-Note: Feel free to add more services if needed.
+> list products
 
-Expectation from the candidate:
+> get single product resource by Id
 
-I.	Preferred solution would have the rest api implemention using nodeJs, KOA JS/ Express JS etc. or if that is not possible it can be mocked using the axios.
-II.	The portal must be created using react, redux and thunk, Custom CSS / CSS framework, responsive design, and unit test cases covering all scenarios.
-III.	Use all best practices (production level code quality).
-IV.	Include README file. 
+> edit products
+
+> delete products
 
 
+### Expectation from the candidate:
+
+> Preferred solution would have the rest api implemention using nodeJs, KOA JS/ Express JS etc. or if that is not possible it can be 
+mocked using the axios.
+
+> The portal must be created using react, redux and thunk, Custom CSS / CSS framework, responsive design, and unit test cases covering 
+all scenarios.
+
+> Use all best practices (production level code quality).
+
+> Include README file.
