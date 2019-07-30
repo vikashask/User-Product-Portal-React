@@ -18,8 +18,8 @@ class App extends Component {
           <div>
               <Header subtitle="React Router"/>
               {/* <Sidebar/> */}
-              <div className={'rightContentContainer'}>
-                    <div className="leftContentContainer">
+              <div>
+                    <div>
                     <Switch>
                         <Route path='/' component={Login} exact/>
                         <Route path='/home' component={Home} exact/>
