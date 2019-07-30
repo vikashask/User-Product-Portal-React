@@ -140,6 +140,48 @@ let register = async (req, res) => {
 
 }
 
+let editUser = async (req, res) => {
+    try {
+        const filter = {
+            _id: req.body._id
+        };
+        const update = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            age: req.body.age
+        };
+        let doc = await User.findOneAndUpdate(filter, update);
+        res.send({
+            message: "User updated!",
+        });
+    } catch (e) {
+        console.log("error", e);
+        res.send({
+            error: e,
+        });
+    }
+
+}
+
+let deleteUser = async (req, res) => {
+    try {
+        let deleteUser = await User.deleteOne({
+            _id: req.body._id
+        });
+        console.log("delete", deleteUser);
+        if (deleteUser) {
+            res.send({
+                message: "User deleted!",
+            });
+        }
+    } catch (e) {
+        console.log("error", e);
+        res.send({
+            error: e,
+        });
+    }
+
+}
 
 module.exports = {
     getUsers,
