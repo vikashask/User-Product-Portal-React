@@ -4,26 +4,25 @@ import {NavLink} from 'react-router-dom';
 const Sidebar = () => {
 
     const links = [
-        {name: 'About Us', url: '/about-us'},
-        {name: 'contact-us', url: '/contact-us'},
-        {name: '404 Error', url: '/404Error'},
+        {name: 'Product', url: '/product'},
+        // {name: '404 Error', url: '/404Error'},
 
     ];
 
     let linksComponents = links.map((link, index) => {
         return (
             <li key={index} className={'nav'}>
-                <NavLink className={'navLink'} activeClassName={'activeNavLink'}
+                <NavLink activeClassName={'activeNavLink'}
                          to={link.url} exact>{link.name}</NavLink>
             </li>
         );
     });
 
     return (
-        <div className={'leftNavContainer'}>
-            <ul>
+        <div className="col-sm-3 col-md-2 sidebar">
+            <ul className="nav nav-sidebar">
                 <li className='nav'>
-                    <NavLink className={'navLink'} activeClassName={'activeNavLink'} to='/' exact>Home</NavLink>
+                    <NavLink activeClassName={'activeNavLink'} to='/' exact>Home</NavLink>
                 </li>
                 {linksComponents}
             </ul>
