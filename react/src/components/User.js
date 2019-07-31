@@ -1,14 +1,14 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Sidebar from '../components/layout/Sidebar';
-import Createrow from '../components/shared/Createrow';
+import Sidebar from './layout/Sidebar';
+import Createrow from './shared/Createrow';
 import * as Constants from '../utils/Constants';
-import {loadAllData} from "./../actions/dataAction"
+import {loadAllData} from "../actions/dataAction"
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
-class Home extends Component {
+class User extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -173,4 +173,4 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Home);
+)(User);
