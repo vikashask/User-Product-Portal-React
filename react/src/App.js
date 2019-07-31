@@ -10,6 +10,7 @@ import Register from './components/Register';
 import EditUser from './components/EditUser';
 import AddUser from './components/AddUser';
 import User from './components/User';
+import AddProduct from './components/product/AddProduct';
 
 
 class App extends Component {
@@ -28,6 +29,8 @@ class App extends Component {
                         <Route path='/user' component={User} />
                         <Route path='/edit-user' component={EditUser} />
                         <Route path='/add-user' component={AddUser} />
+
+                        <Route path='/add-product' component={AddProduct} />
                         <Route component={PageNotFound} />
                     </Switch>
                     </div>

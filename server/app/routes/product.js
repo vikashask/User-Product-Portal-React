@@ -53,12 +53,11 @@ let productbyid = async (req, res) => {
 let postProduct = async (req, res) => {
     try {
         let productData = await Product.findOne({
-            email: req.body.email,
-            password: req.body.password
+            name: req.body.name,
         });
         if (productData) {
             res.send({
-                message: "User already exist with this email ! try with another email",
+                message: "Product already exist with this name",
             });
         } else {
             // create new user
@@ -70,7 +69,7 @@ let postProduct = async (req, res) => {
                         res.send(err);
                     } else {
                         res.send({
-                            message: "User addd!",
+                            message: "Product addded",
                             product
                         });
                     }
@@ -88,18 +87,25 @@ let postProduct = async (req, res) => {
 
 let editProduct = async (req, res) => {
     try {
-        const filter = {
-            _id: req.body._id
-        };
-        const update = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            age: req.body.age
-        };
-        let doc = await Product.findOneAndUpdate(filter, update);
-        res.send({
-            message: "Product updated!",
-        });
+        if (req.body._id) {
+            const filter = {
+                _id: req.body._id
+            };
+            const update = {
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price
+            };
+            let doc = await Product.findOneAndUpdate(filter, update);
+            res.send({
+                message: "Product updated!",
+                product: req.body
+            });
+        } else {
+            res.send({
+                message: "Product id missing",
+            });
+        }
     } catch (e) {
         console.log("error", e);
         res.send({
