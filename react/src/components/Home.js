@@ -12,19 +12,18 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userList:[],
-            data:'00000'
+            productList:[],
         }
     }
 
     // load all data in store
     componentDidMount = () =>{
-        console.log("tokrn",localStorage.getItem('token'));
+        // console.log("tokrn",localStorage.getItem('token'));
         if(!localStorage.getItem('token')){
             this.props.history.push('/');
         }
         this.props.loadAllData({id:12,name:'vikask'});
-        fetch(Constants.baseURL + 'user',
+        fetch(Constants.baseURL + 'product',
             {
                 method: `GET`,
                 credentials: `include`,
@@ -35,7 +34,7 @@ class Home extends Component {
                 if(res.status === 200) {
                     res.json().then((response) => {
                         console.log('response',response);
-                        this.setState({userList: response});
+                        this.setState({productList: response});
                     })
                 }
             })
@@ -44,46 +43,28 @@ class Home extends Component {
             });
     }
 
-    createTable = () =>{
-        return this.state.userList.map((user, index) => {
-            const { firstName, lastName, email, age ,_id} = user //destructuring
-            return (
-               <tr key={_id}>
-                  <td>{firstName}</td>
-                  <td>{lastName}</td>
-                  <td>{email}</td>
-                  <td>{age}</td>
-               </tr>
-            )
-         })
-    }
-
-    addUser = (event) =>{
+    addProduct = (event) =>{
 		event.preventDefault();
-        this.props.history.push('/add-user');
+        this.props.history.push('/add-product');
     }
 
     render(){
-        let userList
-        if(this.state.userList){
-            userList = this.state.userList;
+        let productList
+        if(this.state.productList){
+            productList = this.state.productList;
         }
           const columns = [
             {
-                Header: 'First Name',
-                accessor: 'firstName'
+                Header: 'Name',
+                accessor: 'name'
             },
             {
-                Header: 'Last Name',
-                accessor: 'lastName'
+                Header: 'Description',
+                accessor: 'description'
             },
             {
-                Header: 'age',
-                accessor: 'age'
-            },
-            {
-                Header: 'email',
-                accessor: 'email'
+                Header: 'Price',
+                accessor: 'price'
             },
             {
                 Header: "Edit",
@@ -92,14 +73,13 @@ class Home extends Component {
                 Cell: (row)=> (
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                       onClick={() => {
-                          let data = this.state.userList;
-                          console.log('_id----------',this.state.userList[row.index]);
-                          this.props.history.push(`/edit-user`,{_id:this.state.userList[row.index]._id,
-                            email:this.state.userList[row.index].email,
-                            firstName:this.state.userList[row.index].firstName,
-                            lastName:this.state.userList[row.index].lastName,
-                            age:this.state.userList[row.index].age,
-                            password:this.state.userList[row.index].password
+                          let data = this.state.productList;
+                          console.log('_id----------',this.state.productList[row.index]);
+                          this.props.history.push(`/edit-product`,{
+                            _id:this.state.productList[row.index]._id,
+                            name:this.state.productList[row.index].name,
+                            description:this.state.productList[row.index].description,
+                            price:this.state.productList[row.index].price
                         })
 
                         }}>
@@ -113,22 +93,22 @@ class Home extends Component {
                     Cell: (row)=> (
                     <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                           onClick={() => {
-                              let data = this.state.userList;
-                              console.log('_id----------',this.state.userList[row.index]._id);
-                              fetch(Constants.baseURL + 'user',
+                              let data = this.state.productList;
+                              console.log('_id----------',this.state.productList[row.index]._id);
+                              fetch(Constants.baseURL + 'product',
                                     {
                                         method: `DELETE`,
                                         credentials: `include`,
                                             headers: {
                                                 'Content-Type': 'application/json',
                                             },
-                                            body: JSON.stringify({ '_id': this.state.userList[row.index]._id})
+                                            body: JSON.stringify({ '_id': this.state.productList[row.index]._id})
     
                                     }).then((res) => {
                                         if(res.status === 200) {
                                             res.json().then((response) => {
                                                 console.log('response',response);
-                                                // this.setState({userList: response});
+                                                // this.setState({productList: response});
                                                 data.splice(row.index, 1)
                                                   this.setState({data})
                                             })
@@ -146,11 +126,11 @@ class Home extends Component {
         return(
             <div>
               <Sidebar/>
-              <h2 className="sub-header">User List<br></br>
-              <button onClick={this.addUser} className="btn btn-primary" type="submit">Add user</button>
+              <h2 className="sub-header">product List<br></br>
+              <button onClick={this.addProduct} className="btn btn-primary" type="submit">Add product</button>
               </h2>
               <ReactTable
-                    data={userList}
+                    data={productList}
                     columns={columns}
                     defaultPageSize={10}
                     className="-striped -highlight"
