@@ -48,12 +48,16 @@ class AddProduct extends React.Component {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ 'name': this.state.name,'description':this.state.description, 'price': this.state.price,
+                body: JSON.stringify({
+                     'name': this.state.name,
+                     'description':this.state.description, 
+                     'price': this.state.price,
+                     'created_by':localStorage.getItem('token')
                 })
             }).then((res) => {
                 if(res.status === 200) {
                     res.json().then((response) => {
-                        if(response.product._id){
+                        if(response){
                             this.props.history.push('/home');
                         }else{
                             this.setState({class:'error',errorMsg: 'Unable to Register'});
