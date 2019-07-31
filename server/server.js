@@ -5,6 +5,7 @@ let morgan = require('morgan');
 let bodyParser = require('body-parser');
 let port = 8080;
 let user = require('./app/routes/user');
+let product = require('./app/routes/product');
 
 let config = require('config'); //we load the db location from the JSON files
 
@@ -48,6 +49,7 @@ app.get("/", (req, res) => res.json({
     message: "Welcome to our Demo"
 }));
 
+/* routes for user */
 app.route("/user")
     .get(user.getUsers)
     .post(user.postUser)
@@ -55,6 +57,15 @@ app.route("/user")
     .delete(user.deleteUser);
 
 app.get('/userbyid/:id', user.userbyid);
+
+/* routes for product  */
+app.route("/product")
+.get(product.getProducts)
+.post(product.postProduct)
+.put(product.editProduct)
+.delete(product.deleteProduct);
+
+app.get('/productbyid/:id', product.productbyid);
 
 app.route("/login")
     .post(user.login);
