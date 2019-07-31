@@ -5,17 +5,23 @@ import Utils from '../utils/Utils';
 import * as Constants from '../utils/Constants';
 import MessageBar from '../components/shared/MessageBar'
 
-class Login extends React.Component { 
+class Register extends React.Component { 
     constructor(prpos){
         super(prpos);
         this.state = {
             email:'',
             password:'',
+            firstName:'',
+            lastName:'',
+            age:'',
             validated:false,
             class:'error',
             errorMsg:''
  
         }
+        this.firstNameChange = this.firstNameChange.bind(this);
+        this.plastNameChange = this.lastNameChange.bind(this);
+        this.ageChange = this.ageChange.bind(this);
         this.passwordChange = this.passwordChange.bind(this);
         this.emailChange = this.emailChange.bind(this);
     }
@@ -25,9 +31,21 @@ class Login extends React.Component {
         console.log("getting all data from store from home component---",this.props.allData);
     }
 
+    firstNameChange = (event) =>{
+        this.setState({firstName: event.target.value});
+    }
+    lastNameChange = (event) =>{
+        this.setState({lastName: event.target.value});
+    }
+
+    ageChange = (event) =>{
+        this.setState({age: event.target.value});
+    }
+    
     passwordChange = (event) =>{
         this.setState({password: event.target.value});
     }
+
     emailChange = (event) => {
         this.setState({email: event.target.value});
         let inputVal = event.target.value;
@@ -41,25 +59,25 @@ class Login extends React.Component {
           } 
     }
 
-    login = (event) => {
+    onRegister = (event) => {
 		event.preventDefault();
-        fetch(Constants.baseURL + 'login',
+        fetch(Constants.baseURL + 'Register',
             {
                 method: `POST`,
                 credentials: `include`,
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ 'email': this.state.email,'password':this.state.password })
+                    body: JSON.stringify({ 'firstName': this.state.firstName,'lastName':this.state.lastName, 'age': this.state.age,
+                    'password':this.state.password, 'email': this.state.email })
             }).then((res) => {
                 if(res.status === 200) {
                     res.json().then((response) => {
-                        console.log('response',response._id);
-                        if(response._id){
-                            localStorage.setItem('token',response._id)
+                        localStorage.setItem('token',response.user._id)
+                        if(response.user._id){
                             this.props.history.push('/home');
                         }else{
-                            this.setState({class:'error',errorMsg: 'Invalid login details'});
+                            this.setState({class:'error',errorMsg: 'Unable to Register'});
                         }
                     })
                 }
@@ -68,9 +86,10 @@ class Login extends React.Component {
                 console.log("error----", error);
             });
     }
-    register = (event) => {
+
+    login = (event) => {
         event.preventDefault();
-        this.props.history.push('/register');
+        this.props.history.push('/');
         
     }
     
@@ -83,13 +102,19 @@ class Login extends React.Component {
             <div className="container">
                 {message}
                 <form className="form-signin">
-                    <h2 className="form-signin-heading">Please sign in</h2>
-                    <input type="email" id="inputEmail" value={this.state.email} onChange={this.emailChange} className="form-control" placeholder="Email address" required autoFocus />
+                    <h2 className="form-signin-heading">Please sign up</h2>
+                    <input type="text" value={this.state.firstName} onChange={this.firstNameChange} className="form-control" placeholder="Enter first name" required autoFocus />
                     <br></br>
-                    <input type="password" id="inputPassword" value={this.state.password} onChange={this.passwordChange} className="form-control" placeholder="Password" required />
+                    <input type="text" value={this.state.lastName} onChange={this.lastNameChange} className="form-control" placeholder="Enter last name" required />
                     <br></br>
-                    <button onClick={this.login} className="btn btn-primary" type="submit">Sign in</button>
-                    <button onClick={this.register} className="btn btn-default" type="submit">Register</button>
+                    <input type="text" value={this.state.age} onChange={this.ageChange} className="form-control" placeholder="Enter Age" required />
+                    <br></br>
+                    <input type="email" value={this.state.email} onChange={this.emailChange} className="form-control" placeholder="Email address" required autoFocus />
+                    <br></br>
+                    <input type="password" value={this.state.password} onChange={this.passwordChange} className="form-control" placeholder="Password" required />
+                    <br></br>
+                    <button onClick={this.onRegister} className="btn btn-primary" type="submit">Register</button>
+                    <button onClick={this.login} className="btn btn-default" type="submit">Sign in</button>
                 </form>
             </div>
         );
@@ -102,4 +127,4 @@ const mapStateToProps = (state) =>{
     }
 };
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(Register);
