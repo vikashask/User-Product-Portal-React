@@ -67,6 +67,24 @@ class Home extends Component {
                 accessor: 'price'
             },
             {
+                Header: "View",
+                id:'view',
+                accessor: str => "view",
+                Cell: (row)=> (
+                <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
+                      onClick={() => {
+                              console.log("you can edit");
+                                this.props.history.push(`/view-product`,{
+                                _id:this.state.productList[row.index]._id,
+                                name:this.state.productList[row.index].name,
+                                description:this.state.productList[row.index].description,
+                                price:this.state.productList[row.index].price
+                            })
+                        }}>
+                          View
+                        </span> 
+                )},
+                {
                 Header: "Edit",
                 id:'edit',
                 accessor: str => "edit",
@@ -74,14 +92,17 @@ class Home extends Component {
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                       onClick={() => {
                           let data = this.state.productList;
-                          console.log('_id----------',this.state.productList[row.index]);
-                          this.props.history.push(`/edit-product`,{
-                            _id:this.state.productList[row.index]._id,
-                            name:this.state.productList[row.index].name,
-                            description:this.state.productList[row.index].description,
-                            price:this.state.productList[row.index].price
-                        })
-
+                          if(localStorage.getItem('token') == this.state.productList[row.index].created_by){
+                              console.log("you can edit");
+                                this.props.history.push(`/edit-product`,{
+                                _id:this.state.productList[row.index]._id,
+                                name:this.state.productList[row.index].name,
+                                description:this.state.productList[row.index].description,
+                                price:this.state.productList[row.index].price
+                            })
+                          }else{
+                              alert("You are not owner,you haven't permission to edit");
+                          }
                         }}>
                           Edit
                         </span> 
@@ -95,6 +116,7 @@ class Home extends Component {
                           onClick={() => {
                               let data = this.state.productList;
                               console.log('_id----------',this.state.productList[row.index]._id);
+                          if(localStorage.getItem('token') == this.state.productList[row.index].created_by){
                               fetch(Constants.baseURL + 'product',
                                     {
                                         method: `DELETE`,
@@ -117,6 +139,9 @@ class Home extends Component {
                                     .catch((error) => {
                                         console.log("error----", error);
                                     });
+                                }else{
+                                    alert("You are not owner,you haven't permission to delete");
+                                }
                             }}>
                               Delete
                             </span> 
