@@ -89,7 +89,7 @@ let postUser = async (req, res) => {
 function login(req, res) {
     try {
         console.log(req.body, 'login data---');
-        User.find({
+        User.findOne({
             email: req.body.email,
             password: req.body.password
         }, (function (error, data) {
@@ -142,18 +142,24 @@ let register = async (req, res) => {
 
 let editUser = async (req, res) => {
     try {
-        const filter = {
-            _id: req.body._id
-        };
-        const update = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            age: req.body.age
-        };
-        let doc = await User.findOneAndUpdate(filter, update);
-        res.send({
-            message: "User updated!",
-        });
+        if (req.body._id) {
+            const filter = {
+                _id: req.body._id
+            };
+            const update = {
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                age: req.body.age
+            };
+            let doc = await User.findOneAndUpdate(filter, update);
+            res.send({
+                message: "User updated!",
+            });
+        } else {
+            res.send({
+                message: "user id missing",
+            });
+        }
     } catch (e) {
         console.log("error", e);
         res.send({
