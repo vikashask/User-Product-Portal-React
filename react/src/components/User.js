@@ -71,22 +71,27 @@ class User extends Component {
           const columns = [
             {
                 Header: 'First Name',
-                accessor: 'firstName'
+                accessor: 'firstName',
+                headerClassName:'text-left'
             },
             {
                 Header: 'Last Name',
-                accessor: 'lastName'
+                accessor: 'lastName',
+                headerClassName:'text-left'
             },
             {
                 Header: 'age',
-                accessor: 'age'
+                accessor: 'age',
+                headerClassName:'text-left'
             },
             {
                 Header: 'email',
-                accessor: 'email'
+                accessor: 'email',
+                headerClassName:'text-left'
             },
             {
                 Header: "Edit",
+                headerClassName:'text-left',
                 id:'edit',
                 accessor: str => "edit",
                 Cell: (row)=> (
@@ -109,6 +114,7 @@ class User extends Component {
                 {
                     Header: "Delete",
                     id:'delete',
+                    headerClassName:'text-left',
                     accessor: str => "delete",
                     Cell: (row)=> (
                     <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}

@@ -4,6 +4,10 @@ a.activeNavLink {
     list-style-type: none;
     color: #662222;
 }
+.activeNavLink{
+    text-align: center;
+    background: darkgray;
+}
 
 a.navLink {
     font-size: 18px;
@@ -44,6 +48,7 @@ a, a:active, a:visited, a:hover {
 li.nav {
     list-style-type: none;
     margin-left: -30px;
+    text-align: center;
 }
 
 .header {
@@ -73,4 +78,7 @@ li.nav {
     margin-left: 12px;
     width: 80px;
     margin-top: 20px;
+}
+.text-left{
+    text-align: left;
 }
