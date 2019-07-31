@@ -56,19 +56,23 @@ class Home extends Component {
           const columns = [
             {
                 Header: 'Name',
-                accessor: 'name'
+                accessor: 'name',
+                headerClassName:'text-left'
             },
             {
                 Header: 'Description',
-                accessor: 'description'
+                accessor: 'description',
+                headerClassName:'text-left'
             },
             {
                 Header: 'Price',
-                accessor: 'price'
+                accessor: 'price',
+                headerClassName:'text-left'
             },
             {
                 Header: "View",
                 id:'view',
+                headerClassName:'text-left',
                 accessor: str => "view",
                 Cell: (row)=> (
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
@@ -87,6 +91,7 @@ class Home extends Component {
                 {
                 Header: "Edit",
                 id:'edit',
+                headerClassName:'text-left',
                 accessor: str => "edit",
                 Cell: (row)=> (
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
@@ -110,6 +115,7 @@ class Home extends Component {
                 {
                     Header: "Delete",
                     id:'delete',
+                    headerClassName:'text-left',
                     accessor: str => "delete",
                     Cell: (row)=> (
                     <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
