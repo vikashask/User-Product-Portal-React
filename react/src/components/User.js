@@ -93,8 +93,8 @@ class User extends Component {
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                       onClick={() => {
                           let data = this.state.userList;
-                          console.log('_id----------',this.state.userList[row.index]);
-                          this.props.history.push(`/edit-user`,{_id:this.state.userList[row.index]._id,
+                          this.props.history.push(`/edit-user`,{
+                            _id:this.state.userList[row.index]._id,
                             email:this.state.userList[row.index].email,
                             firstName:this.state.userList[row.index].firstName,
                             lastName:this.state.userList[row.index].lastName,
@@ -114,7 +114,9 @@ class User extends Component {
                     <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                           onClick={() => {
                               let data = this.state.userList;
-                              console.log('_id----------',this.state.userList[row.index]._id);
+                          if(localStorage.getItem('token') == this.state.userList[row.index]._id){
+                            alert("You cann't delete your account");
+                          }else{
                               fetch(Constants.baseURL + 'user',
                                     {
                                         method: `DELETE`,
@@ -128,7 +130,6 @@ class User extends Component {
                                         if(res.status === 200) {
                                             res.json().then((response) => {
                                                 console.log('response',response);
-                                                // this.setState({userList: response});
                                                 data.splice(row.index, 1)
                                                   this.setState({data})
                                             })
@@ -137,6 +138,7 @@ class User extends Component {
                                     .catch((error) => {
                                         console.log("error----", error);
                                     });
+                                }
                             }}>
                               Delete
                             </span> 

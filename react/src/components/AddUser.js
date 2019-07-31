@@ -79,7 +79,7 @@ class AddUser extends React.Component {
                 if(res.status === 200) {
                     res.json().then((response) => {
                         if(response.user._id){
-                            this.props.history.push('/home');
+                            this.props.history.push('/user');
                         }else{
                             this.setState({class:'error',errorMsg: 'Unable to Register'});
                         }

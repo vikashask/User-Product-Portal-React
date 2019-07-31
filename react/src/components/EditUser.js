@@ -30,7 +30,6 @@ class EditUser extends React.Component {
     // getting all data from store from home component
     componentDidMount = () =>{
         console.log("getting all data from store from home component---",this.props.allData);
-        console.log("==================_id",this.props.location.state._id);
         if(this.props.location.state){
             this.setState({
                 email:this.props.location.state.email,
@@ -39,10 +38,9 @@ class EditUser extends React.Component {
                 age:this.props.location.state.age,
                 password:this.props.location.state.password,
                 _id:this.props.location.state._id,
-
             })
         }else{
-            this.props.history.push('/home');
+            this.props.history.push('/user');
         }
     }
 
@@ -74,7 +72,7 @@ class EditUser extends React.Component {
           } 
     }
 
-    onRegister = (event) => {
+    onUpdate = (event) => {
 		event.preventDefault();
         fetch(Constants.baseURL + 'user',
             {
@@ -83,13 +81,17 @@ class EditUser extends React.Component {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ 'firstName': this.state.firstName,'lastName':this.state.lastName, 'age': this.state.age,
-                    '_id':this.state._id })
+                    body: JSON.stringify({ 
+                        'firstName': this.state.firstName,
+                        'lastName':this.state.lastName, 
+                        'age': this.state.age,
+                        '_id':this.state._id 
+                    })
             }).then((res) => {
                 if(res.status === 200) {
                     res.json().then((response) => {
                         if(response){
-                            this.props.history.push('/home');
+                            this.props.history.push('/user');
                         }else{
                             this.setState({class:'error',errorMsg: 'Unable to update'});
                         }
@@ -125,7 +127,7 @@ class EditUser extends React.Component {
                     <br></br>
                     <input type="password" value={this.state.password} onChange={this.passwordChange} className="form-control" placeholder="Password" readOnly />
                     <br></br>
-                    <button onClick={this.onRegister} className="btn btn-primary" type="submit">Update user</button>
+                    <button onClick={this.onUpdate} className="btn btn-primary" type="submit">Update user</button>
                     <button onClick={this.onCancel} className="btn btn-default" type="submit">Cancel</button>
                 </form>
             </div>
