@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 const Sidebar = () => {
 
     const links = [
-        {name: 'Product', url: '/product'},
+        {name: 'User', url: '/user'},
         // {name: '404 Error', url: '/404Error'},
 
     ];
@@ -22,7 +22,7 @@ const Sidebar = () => {
         <div className="col-sm-3 col-md-2 sidebar">
             <ul className="nav nav-sidebar">
                 <li className='nav'>
-                    <NavLink activeClassName={'activeNavLink'} to='/' exact>Home</NavLink>
+                    <NavLink activeClassName={'activeNavLink'} to='/home' exact>Home</NavLink>
                 </li>
                 {linksComponents}
             </ul>

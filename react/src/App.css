@@ -22,6 +22,20 @@
   font-size: large;
 }
 
+.error{
+  background: #f2d9df;
+  color: black;
+  position: relative;
+  font-family: 'latoregular';
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: -1px;
+  display: block;
+  padding: 3px;
+  border-style: solid;
+  border-width:1px; 
+  border-color: #b81237;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
