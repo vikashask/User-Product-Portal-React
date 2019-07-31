@@ -11,6 +11,8 @@ import EditUser from './components/EditUser';
 import AddUser from './components/AddUser';
 import User from './components/User';
 import AddProduct from './components/product/AddProduct';
+import EditProduct from './components/product/EditProduct';
+import ViewProduct from './components/product/ViewProduct';
 
 
 class App extends Component {
@@ -26,11 +28,14 @@ class App extends Component {
                         <Route path='/' component={Login} exact/>
                         <Route path='/home' component={Home} exact/>
                         <Route path='/register' component={Register} />
+                        
                         <Route path='/user' component={User} />
                         <Route path='/edit-user' component={EditUser} />
                         <Route path='/add-user' component={AddUser} />
-
+                        
                         <Route path='/add-product' component={AddProduct} />
+                        <Route path='/edit-product' component={EditProduct} />
+                        <Route path='/view-product' component={ViewProduct} />
                         <Route component={PageNotFound} />
                     </Switch>
                     </div>
