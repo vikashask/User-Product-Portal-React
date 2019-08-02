@@ -14,3 +14,11 @@ export const loadAllData = (allData) => {
         allData
     }
 }
+
+export const loadAllProduct = (allProduct) => {
+    
+    return {
+        type: types.GET_ALL_PRODUCT,
+        allProduct
+    }
+}
