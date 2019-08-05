@@ -22,3 +22,11 @@ export const loadAllProduct = (allProduct) => {
         allProduct
     }
 }
+
+export const loadAllUser = (allUser) => {
+    
+    return {
+        type: types.GET_ALL_USER,
+        allUser
+    }
+}
