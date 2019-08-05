@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import Sidebar from '../components/layout/Sidebar';
 import Createrow from '../components/shared/Createrow';
 import * as Constants from '../utils/Constants';
-import {loadAllData} from "./../actions/dataAction"
+import {loadAllData,loadAllProduct} from "./../actions/dataAction"
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
@@ -35,6 +35,8 @@ class Home extends Component {
                     res.json().then((response) => {
                         console.log('response',response);
                         this.setState({productList: response});
+                        // putting all data into store
+                        this.props.loadAllProduct({productList: response});
                     })
                 }
             })
@@ -44,7 +46,10 @@ class Home extends Component {
     }
 
     addProduct = (event) =>{
-		event.preventDefault();
+        event.preventDefault();
+        // example to fetch allProductData from store
+        console.log("------",this.props.allProductData);
+        
         this.props.history.push('/add-product');
     }
 
@@ -173,12 +178,14 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		allData: state.allData
+        allData: state.allData,
+        allProductData: state.allProductData
 	}	
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-	loadAllData
+    loadAllData,
+    loadAllProduct
 }, dispatch);
 
 export default connect(
