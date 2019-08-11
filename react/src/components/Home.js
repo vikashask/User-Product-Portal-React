@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import Sidebar from '../components/layout/Sidebar';
 import Createrow from '../components/shared/Createrow';
 import * as Constants from '../utils/Constants';
-import {loadAllData,loadAllProduct} from "./../actions/dataAction"
+import {loadAllData,loadAllProduct, deleteProduct} from "./../actions/dataAction"
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
@@ -128,28 +128,8 @@ class Home extends Component {
                               let data = this.state.productList;
                               console.log('_id----------',this.state.productList[row.index]._id);
                           if(localStorage.getItem('token') == this.state.productList[row.index].created_by){
-                              fetch(Constants.baseURL + 'product',
-                                    {
-                                        method: `DELETE`,
-                                        credentials: `include`,
-                                            headers: {
-                                                'Content-Type': 'application/json',
-                                            },
-                                            body: JSON.stringify({ '_id': this.state.productList[row.index]._id})
-    
-                                    }).then((res) => {
-                                        if(res.status === 200) {
-                                            res.json().then((response) => {
-                                                console.log('response',response);
-                                                // this.setState({productList: response});
-                                                data.splice(row.index, 1)
-                                                  this.setState({data})
-                                            })
-                                        }
-                                    })
-                                    .catch((error) => {
-                                        console.log("error----", error);
-                                    });
+                              
+                              this.props.deleteProduct({productId:this.state.productList[row.index]._id,index:row.index})
                                 }else{
                                     alert("You are not owner,you haven't permission to delete");
                                 }
@@ -179,13 +159,14 @@ class Home extends Component {
 const mapStateToProps = (state) => {
 	return {
         allData: state.allData,
-        allProductData: state.allProductData
+        allProductData: state.productList
 	}	
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     loadAllData,
-    loadAllProduct
+    loadAllProduct,
+    deleteProduct
 }, dispatch);
 
 export default connect(
