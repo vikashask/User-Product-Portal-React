@@ -23,6 +23,14 @@ export const loadAllProduct = (allProduct) => {
     }
 }
 
+export const deleteProduct = (product) => {
+    
+    return {
+        type: types.DELETE_PRODUCT,
+        payload:product
+    }
+}
+
 export const loadAllUser = (allUser) => {
     
     return {
