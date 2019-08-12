@@ -20,27 +20,33 @@ class Home extends Component {
         if(!localStorage.getItem('token')){
             this.props.history.push('/');
         }
-        this.props.loadAllData({id:12,name:'vikask'});
-        fetch(Constants.baseURL + 'product',
-            {
-                method: `GET`,
-                credentials: `include`,
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-            }).then((res) => {
-                if(res.status === 200) {
-                    res.json().then((response) => {
-                        console.log('response',response);
-                        this.setState({productList: response});
-                        // putting all data into store
-                        this.props.loadAllProduct({productList: response});
-                    })
-                }
-            })
-            .catch((error) => {
-                console.log("error----", error);
-            });
+        // this.props.loadAllData({id:12,name:'vikask'});
+        // this.props.loadAllData();
+
+        // console.log("------",this.props.allProductData.productList);
+
+        this.props.loadAllProduct({id:12,name:'vikask'});
+
+        // fetch(Constants.baseURL + 'product',
+        //     {
+        //         method: `GET`,
+        //         credentials: `include`,
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //             }
+        //     }).then((res) => {
+        //         if(res.status === 200) {
+        //             res.json().then((response) => {
+        //                 console.log('response',response);
+        //                 this.setState({productList: response});
+        //                 // putting all data into store
+        //                 this.props.loadAllProduct({productList: response});
+        //             })
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         console.log("error----", error);
+        //     });
     }
 
     addProduct = (event) =>{
