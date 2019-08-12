@@ -15,6 +15,8 @@ export default {
     },
 
     delete :  async (body) => {
+        console.log("----body from rest client",body);
+        
         let response = await fetch(Constants.baseURL + 'product',
         {
             method: `DELETE`,

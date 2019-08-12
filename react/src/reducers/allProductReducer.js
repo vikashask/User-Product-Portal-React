@@ -12,7 +12,9 @@ export default function allProductReducer(state = initialState.allProduct, actio
 
         case types.DELETE_PRODUCT:
                 let body = { '_id': action.productId};
-                client.delete(body)
+                console.log("---action",action);
+                
+                client.delete({ '_id': action.payload.productId})
                 .then(data => {
                     if(data.success=== true){
                         console.log('final call data',data);

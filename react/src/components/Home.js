@@ -15,10 +15,8 @@ class Home extends Component {
             productList:[],
         }
     }
-
     // load all data in store
     componentDidMount = () =>{
-        // console.log("tokrn",localStorage.getItem('token'));
         if(!localStorage.getItem('token')){
             this.props.history.push('/');
         }
@@ -47,16 +45,17 @@ class Home extends Component {
 
     addProduct = (event) =>{
         event.preventDefault();
-        // example to fetch allProductData from store
-        console.log("------",this.props.allProductData);
+        // example to fetch allProduct from store
+        console.log("------",this.props.allProductData.productList);
         
         this.props.history.push('/add-product');
     }
 
     render(){
-        let productList
-        if(this.state.productList){
-            productList = this.state.productList;
+        console.log("this.props.allProductData",this.props.allProductData.productList);
+        let productList;
+        if(this.props.allProductData && this.props.allProductData.productList){
+            productList = this.props.allProductData.productList;
         }
           const columns = [
             {
@@ -159,7 +158,7 @@ class Home extends Component {
 const mapStateToProps = (state) => {
 	return {
         allData: state.allData,
-        allProductData: state.productList
+        allProductData: state.allProductData
 	}	
 };
 
