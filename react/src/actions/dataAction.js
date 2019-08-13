@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import client,{getOperation} from "./../utils/restClient";
 
 /* 
 Actions are payloads of information that send data from your application to your store
@@ -17,9 +18,12 @@ export const loadAllData = (allData) => {
 
 export const loadAllProduct = (allProduct) => {
     
-    return {
-        type: types.GET_ALL_PRODUCT,
-        allProduct
+    return async (dispatch) => {
+        const repos = await getOperation();
+        dispatch({
+            type:types.GET_ALL_PRODUCT,
+            payload:repos,
+        });
     }
 }
 
