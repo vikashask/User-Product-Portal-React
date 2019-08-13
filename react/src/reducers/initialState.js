@@ -1,5 +1,5 @@
 export default {
     allData: '',
-    allProduct:'',
+    allProduct:[],
     allUser:''
 }
