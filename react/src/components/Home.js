@@ -21,11 +21,10 @@ class Home extends Component {
             this.props.history.push('/');
         }
         // this.props.loadAllData({id:12,name:'vikask'});
-        // this.props.loadAllData();
 
         // console.log("------",this.props.allProductData.productList);
 
-        this.props.loadAllProduct({id:12,name:'vikask'});
+        this.props.loadAllProduct();
 
         // fetch(Constants.baseURL + 'product',
         //     {
@@ -52,16 +51,17 @@ class Home extends Component {
     addProduct = (event) =>{
         event.preventDefault();
         // example to fetch allProduct from store
-        console.log("------",this.props.allProductData.productList);
+        // console.log("------",this.props.allProductData.productList);
         
         this.props.history.push('/add-product');
     }
 
     render(){
-        console.log("this.props.allProductData",this.props.allProductData.productList);
+        console.log('this.props',this.props);
+        
         let productList;
-        if(this.props.allProductData && this.props.allProductData.productList){
-            productList = this.props.allProductData.productList;
+        if(this.props.allProductData){
+            productList = this.props.allProductData;
         }
           const columns = [
             {
@@ -131,7 +131,7 @@ class Home extends Component {
                     <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                           onClick={() => {
                               let data = this.state.productList;
-                              console.log('_id----------',this.state.productList[row.index]._id);
+                            //   console.log('_id----------',this.state.productList[row.index]._id);
                           if(localStorage.getItem('token') == this.state.productList[row.index].created_by){
                               
                               this.props.deleteProduct({productId:this.state.productList[row.index]._id,index:row.index})
@@ -164,7 +164,7 @@ class Home extends Component {
 const mapStateToProps = (state) => {
 	return {
         allData: state.allData,
-        allProductData: state.allProductData
+        allProductData: state.allProductData.allProduct
 	}	
 };
 
