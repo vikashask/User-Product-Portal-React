@@ -1,5 +1,24 @@
 import * as Constants from "./../utils/Constants";
 
+export const getOperation = async (url)=> (
+        await fetch(Constants.baseURL + 'product', {
+            method: `GET`,
+            credentials: `include`,
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+                    .then(function(response) {
+                        
+                        return response.json();
+                    })
+                    .then(function(data) {
+                        return new Promise((resolve)=>{
+
+                            resolve(data);
+                        });
+                  }));
+
 export default {
 
     get: async (apiUrl, param) => {
