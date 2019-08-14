@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import client,{getOperation} from "./../utils/restClient";
+import client,{getOperation, deleteOperation} from "./../utils/restClient";
 
 /* 
 Actions are payloads of information that send data from your application to your store
@@ -29,9 +29,12 @@ export const loadAllProduct = (allProduct) => {
 
 export const deleteProduct = (product) => {
     
-    return {
-        type: types.DELETE_PRODUCT,
-        payload:product
+    return async (dispatch) => {
+        const repos = await deleteOperation(product);
+        dispatch({
+            type:types.DELETE_PRODUCT,
+            payload:repos,
+        });
     }
 }
 
