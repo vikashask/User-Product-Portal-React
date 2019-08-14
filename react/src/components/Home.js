@@ -130,11 +130,10 @@ class Home extends Component {
                     Cell: (row)=> (
                     <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                           onClick={() => {
-                              let data = this.state.productList;
-                            //   console.log('_id----------',this.state.productList[row.index]._id);
-                          if(localStorage.getItem('token') == this.state.productList[row.index].created_by){
-                              
-                              this.props.deleteProduct({productId:this.state.productList[row.index]._id,index:row.index})
+                              console.log("---",productList[row.index]);
+                          if(localStorage.getItem('token') == productList[row.index].created_by){
+                                this.props.deleteProduct({productId:productList[row.index]._id,index:row.index});
+                                this.props.loadAllProduct();
                                 }else{
                                     alert("You are not owner,you haven't permission to delete");
                                 }
@@ -142,7 +141,6 @@ class Home extends Component {
                               Delete
                             </span> 
                     )}
-             
         ];
         return(
             <div>
