@@ -89,10 +89,10 @@ class Home extends Component {
                       onClick={() => {
                               console.log("you can edit");
                                 this.props.history.push(`/view-product`,{
-                                _id:this.state.productList[row.index]._id,
-                                name:this.state.productList[row.index].name,
-                                description:this.state.productList[row.index].description,
-                                price:this.state.productList[row.index].price
+                                _id:productList[row.index]._id,
+                                name:productList[row.index].name,
+                                description:productList[row.index].description,
+                                price:productList[row.index].price
                             })
                         }}>
                           View
