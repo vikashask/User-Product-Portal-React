@@ -88,14 +88,14 @@ class EditProduct extends React.Component {
             <div className="container">
                 {message}
                 <form className="form-signin">
-                    <h2 className="form-signin-heading">Edit user</h2>
+                    <h2 className="form-signin-heading">Edit product</h2>
                     <input type="text" value={this.state.name} onChange={this.nameChange} className="form-control" placeholder="Enter name" required autoFocus />
                     <br></br>
                     <input type="text" value={this.state.description} onChange={this.descriptionChange} className="form-control" placeholder="Enter description" required />
                     <br></br>
                     <input type="text" value={this.state.price} onChange={this.priceChange} className="form-control" placeholder="Enter price" required />
                     <br></br>
-                    <button onClick={this.onEditProduct} className="btn btn-primary" type="submit">Update user</button>
+                    <button onClick={this.onEditProduct} className="btn btn-primary" type="submit">Update product</button>
                     <button onClick={this.onCancel} className="btn btn-default" type="submit">Cancel</button>
                 </form>
             </div>
