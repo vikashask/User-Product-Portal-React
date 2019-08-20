@@ -106,14 +106,14 @@ class Home extends Component {
                 Cell: (row)=> (
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                       onClick={() => {
-                          let data = this.state.productList;
-                          if(localStorage.getItem('token') == this.state.productList[row.index].created_by){
+                        //   let data = this.state.productList;
+                          if(localStorage.getItem('token') == productList[row.index].created_by){
                               console.log("you can edit");
                                 this.props.history.push(`/edit-product`,{
-                                _id:this.state.productList[row.index]._id,
-                                name:this.state.productList[row.index].name,
-                                description:this.state.productList[row.index].description,
-                                price:this.state.productList[row.index].price
+                                _id:productList[row.index]._id,
+                                name:productList[row.index].name,
+                                description:productList[row.index].description,
+                                price:productList[row.index].price
                             })
                           }else{
                               alert("You are not owner,you haven't permission to edit");
