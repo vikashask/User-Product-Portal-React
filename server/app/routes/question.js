@@ -83,6 +83,28 @@ let editQuestion = async (req, res) => {
 
 }
 
+let deleteQuestion = async (req, res) => {
+    try {
+        let deleteQuestion = await Question.deleteOne({
+            _id: req.body._id
+        });
+        console.log("delete", deleteQuestion);
+        if (deleteQuestion) {
+            res.send({
+                message: "Question deleted!",
+            });
+        }
+    } catch (e) {
+        console.log("error", e);
+        res.send({
+            error: e,
+        });
+    }
+
+}
+
+
+
 module.exports = {
     getQuestions,
     postQuestion,

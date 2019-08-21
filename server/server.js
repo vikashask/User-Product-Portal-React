@@ -71,6 +71,8 @@ app.route("/question")
 .get(question.getQuestions)
 .post(question.postQuestion)
 .put(question.editQuestion)
+.delete(question.deleteQuestion)
+
 ;
 
 app.get('/productbyid/:id', product.productbyid);
