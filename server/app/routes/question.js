@@ -19,6 +19,41 @@ function getQuestions(req, res) {
 
 }
 
+let postQuestion = async (req, res) => {
+    try {
+        let QuestionData = await Question.findOne({
+            name: req.body.question,
+        });
+        if (QuestionData) {
+            res.send({
+                message: "Question already exist with this name",
+            });
+        } else {
+            // create new user
+            let newQuestion = new Question(req.body);
+            // saveing heres
+            newQuestion.save(
+                (err, Question) => {
+                    if (err) {
+                        res.send(err);
+                    } else {
+                        res.send({
+                            message: "Question addded",
+                            Question
+                        });
+                    }
+                }
+            );
+        }
+    } catch (e) {
+        console.log("error", e);
+        res.send({
+            error: e,
+        });
+    }
+
+}
+
 
 module.exports = {
     getQuestions,
