@@ -54,6 +54,34 @@ let postQuestion = async (req, res) => {
 
 }
 
+let editQuestion = async (req, res) => {
+    try {
+        if (req.body._id) {
+            const filter = {
+                _id: req.body._id
+            };
+            const update = {
+                question: req.body.question,
+                answer: req.body.answer
+            };
+            let doc = await Question.findOneAndUpdate(filter, update);
+            res.send({
+                message: "Question updated!",
+                Question: req.body
+            });
+        } else {
+            res.send({
+                message: "Question id missing",
+            });
+        }
+    } catch (e) {
+        console.log("error", e);
+        res.send({
+            error: e,
+        });
+    }
+
+}
 
 module.exports = {
     getQuestions,

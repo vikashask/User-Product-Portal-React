@@ -70,6 +70,7 @@ app.route("/product")
 app.route("/question")
 .get(question.getQuestions)
 .post(question.postQuestion)
+.put(question.editQuestion)
 ;
 
 app.get('/productbyid/:id', product.productbyid);
