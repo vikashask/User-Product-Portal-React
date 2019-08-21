@@ -67,6 +67,8 @@ app.route("/product")
 .put(product.editProduct)
 .delete(product.deleteProduct);
 
+app.get('/productbyid/:id', product.productbyid);
+
 app.route("/question")
 .get(question.getQuestions)
 .post(question.postQuestion)
@@ -74,8 +76,8 @@ app.route("/question")
 .delete(question.deleteQuestion)
 
 ;
+app.get('/questionbyid/:id', question.Questionbyid);
 
-app.get('/productbyid/:id', product.productbyid);
 
 app.route("/login")
     .post(user.login);

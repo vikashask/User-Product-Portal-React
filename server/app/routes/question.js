@@ -104,6 +104,36 @@ let deleteQuestion = async (req, res) => {
 }
 
 
+let Questionbyid = async (req, res) => {
+    try {
+        console.log("req.params.id", req.params);
+
+        if (req.params.id) {
+            let QuestionData = await Question.findOne({
+                _id: req.params.id,
+            }, {
+                password: 0
+            });
+            if (QuestionData) {
+                res.send({
+                    data: QuestionData,
+                });
+            }
+        } else {
+            let QuestionData = await Question.find();
+            if (QuestionData) {
+                res.send({
+                    data: QuestionData,
+                });
+            }
+        }
+    } catch (e) {
+        console.log("error", e);
+        res.send({
+            error: e,
+        });
+    }
+}
 
 module.exports = {
     getQuestions,
