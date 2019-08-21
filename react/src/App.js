@@ -13,6 +13,7 @@ import User from './components/User';
 import AddProduct from './components/product/AddProduct';
 import EditProduct from './components/product/EditProduct';
 import ViewProduct from './components/product/ViewProduct';
+import Test from './components/test/Test';
 
 
 class App extends Component {
@@ -36,6 +37,8 @@ class App extends Component {
                         <Route path='/add-product' component={AddProduct} />
                         <Route path='/edit-product' component={EditProduct} />
                         <Route path='/view-product' component={ViewProduct} />
+
+                        <Route path='/test' component={Test} />
                         <Route component={PageNotFound} />
                     </Switch>
                     </div>
