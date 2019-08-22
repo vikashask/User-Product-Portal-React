@@ -1,15 +1,34 @@
 import React from 'react';
+import * as Constants from '../../utils/Constants';
 
 class StartTest extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {
-          selectedOption: options[0]
+          question: []
         };
       }
     componentDidMount = () =>{
 
       console.log("this.props.location",this.props.location.state.selectedTest);
+      fetch(Constants.baseURL + 'question',
+      {
+          method: `GET`,
+          credentials: `include`,
+              headers: {
+                  'Content-Type': 'application/json',
+              }
+      }).then((res) => {
+          if(res.status === 200) {
+              res.json().then((response) => {
+                  console.log('response',response);
+                  this.setState({question: response});
+              })
+          }
+      })
+      .catch((error) => {
+          console.log("error----", error);
+      });
       
     }
     
