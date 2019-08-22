@@ -16,13 +16,20 @@ class Test extends React.Component {
           console.log("---",options[eventKey]);
         this.setState({ selectedOption: options[eventKey] });
       }
+
+      startTest = (event) =>{
+        event.preventDefault();
+        console.log("event",event.target.value);
+        console.log("selected",this.state.selectedOption);
+        
+        
+      }
     
       render() {
           return(
               <div>
               <Sidebar/>
-                <div className="select_option">
-                {/* <label htmlFor="type">Document Desc</label> */}
+                <div className="jumbotron select_option col-md-10">
                 <DropdownButton
                     title={this.state.selectedOption}
                     id="document-type"
@@ -34,6 +41,19 @@ class Test extends React.Component {
                     </MenuItem>
                     ))}
                 </DropdownButton>
+                <hr></hr>
+                  <div className="row">
+                      <div className="col-lg-2">
+                      <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="begginer"></input></p>
+                      </div>
+                      <div className="col-lg-2">
+                      <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="Intermidiate"></input></p>
+                      </div>
+                      <div className="col-lg-2">
+                      <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="Experienced"></input></p>
+                  </div>
+                  </div>
+
                 </div>
             </div>
 

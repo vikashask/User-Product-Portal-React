@@ -20,7 +20,7 @@ const Sidebar = () => {
     });
 
     return (
-        <div className="col-sm-3 col-md-2 sidebar">
+        <div className="col-sm-2 col-md-2 sidebar">
             <ul className="nav nav-sidebar">
                 <li className='nav'>
                     <NavLink activeClassName={'activeNavLink'} to='/home' exact>Home</NavLink>
