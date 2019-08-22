@@ -4,8 +4,6 @@ let mongoose = require('mongoose');
 let morgan = require('morgan');
 let bodyParser = require('body-parser');
 let port = 8080;
-let user = require('./app/routes/user');
-let product = require('./app/routes/product');
 
 let config = require('config'); //we load the db location from the JSON files
 
@@ -45,6 +43,10 @@ app.use(bodyParser.json({
 }));
 
 // route
+let user = require('./app/routes/user');
+let product = require('./app/routes/product');
+let question = require('./app/routes/question');
+
 app.get("/", (req, res) => res.json({
     message: "Welcome to our Demo"
 }));
@@ -66,6 +68,16 @@ app.route("/product")
 .delete(product.deleteProduct);
 
 app.get('/productbyid/:id', product.productbyid);
+
+app.route("/question")
+.get(question.getQuestions)
+.post(question.postQuestion)
+.put(question.editQuestion)
+.delete(question.deleteQuestion)
+
+;
+app.get('/questionbyid/:id', question.Questionbyid);
+
 
 app.route("/login")
     .post(user.login);

@@ -5,6 +5,7 @@ const Sidebar = () => {
 
     const links = [
         {name: 'User', url: '/user'},
+        {name: 'Start Test', url: '/test'},
         // {name: '404 Error', url: '/404Error'},
 
     ];
