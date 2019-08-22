@@ -45,13 +45,34 @@ class StartTest extends React.Component {
       }
     
       render() {
+        const questionList = this.state.question.map(data=>{
+          console.log("data",data);
+          return(
+            <div className="jumbotron">
+              <p>{data.question}</p>
+              <p>
+                <label>
+                  <input type="radio" name="op1" value={data.a}></input>{data.a}
+                </label>
+                <label>
+                  <input type="radio" name="op1" value={data.b}></input>{data.b}
+                </label>
+                <label>
+                  <input type="radio" name="op1" value={data.c}></input>{data.c}
+                </label>
+                <label>
+                  <input type="radio" name="op1" value={data.d}></input>{data.d}
+                </label>
+              </p>
+            </div>
+          )
+          
+        })
           return(
               <div className="container">
                 <h2>Start Test</h2>
                 <hr></hr>
-                <div className="jumbotron">
-                  <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-                </div>
+                {questionList}
             </div>
           )
       }
