@@ -14,6 +14,7 @@ import AddProduct from './components/product/AddProduct';
 import EditProduct from './components/product/EditProduct';
 import ViewProduct from './components/product/ViewProduct';
 import Test from './components/test/Test';
+import StartTest from './components/test/StartTest';
 
 
 class App extends Component {
@@ -39,6 +40,7 @@ class App extends Component {
                         <Route path='/view-product' component={ViewProduct} />
 
                         <Route path='/test' component={Test} />
+                        <Route path='/start-test' component={StartTest} />
                         <Route component={PageNotFound} />
                     </Switch>
                     </div>

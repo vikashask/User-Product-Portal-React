@@ -8,20 +8,23 @@ class Test extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          selectedOption: options[0] // default selected value
+          selectedTest: options[0] // default selected value
         };
       }
     
       handleSelect(eventKey, event) {
           console.log("---",options[eventKey]);
-        this.setState({ selectedOption: options[eventKey] });
+        this.setState({ selectedTest: options[eventKey] });
       }
 
       startTest = (event) =>{
         event.preventDefault();
         console.log("event",event.target.value);
-        console.log("selected",this.state.selectedOption);
-        
+        console.log("selected",this.state.selectedTest);
+       this.props.history.push('/start-test',{
+        selectedTest:this.state.selectedTest,
+        testLevel:event.target.value
+       }); 
         
       }
     
@@ -31,7 +34,7 @@ class Test extends React.Component {
               <Sidebar/>
                 <div className="jumbotron select_option col-md-10">
                 <DropdownButton
-                    title={this.state.selectedOption}
+                    title={this.state.selectedTest}
                     id="document-type"
                     onSelect={this.handleSelect.bind(this)}
                 >
