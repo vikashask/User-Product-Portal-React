@@ -6,8 +6,8 @@ class StartTest extends React.Component {
         super(props);
         this.state = {
           question: [],
-          answer:[],
-          selectedOption:[]
+          finalAnswer:[],
+          // selectedOption:[]
         };
       }
     componentDidMount = () =>{
@@ -23,7 +23,7 @@ class StartTest extends React.Component {
       }).then((res) => {
           if(res.status === 200) {
               res.json().then((response) => {
-                  console.log('response',response);
+                  // console.log('response',response);
                   response.forEach(element => {
                     this.setState({[element._id]: ''});                    
                   });
@@ -46,12 +46,21 @@ class StartTest extends React.Component {
 
       onSubmitTest = (event) =>{
         event.preventDefault();
-        console.log("event",event.target.name,event.target.value);
-        console.log("selected",this.state.answer);
-                
+        let finalAnswerArr = [];
+        this.state.question.map( q=> {
+          let question_id = q._id;
+          let answer = q.answer;
+          if(this.state[question_id] === q.answer){
+            finalAnswerArr.push({question_id:question_id,answer:answer});
+            // console.log("final answer",this.state[question_id] , q.answer);
+          }
+        });
+        // console.log("final answer",finalAnswerArr);
+        this.setState({finalAnswer:finalAnswerArr})
       }
     
       render() {
+        // console.log("final answer sta",this.state.finalAnswer);
           return(
               <div className="container">
                 <h2>Start Test</h2>
@@ -62,10 +71,7 @@ class StartTest extends React.Component {
                       <EachQuestion data={data} handleChange={this.handleChange} key={data._id}/>
                     )
                 })}
-                {/* <label>
-                  <input type="radio" name="op5" onChange={this.handleChange} value="test"></input>test
-                </label> */}
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" className="btn btn-primary"/>
                 </form>
             </div>
           )

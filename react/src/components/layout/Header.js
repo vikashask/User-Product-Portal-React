@@ -15,7 +15,7 @@ const Header = (props) => {
     return (
         <header className='header'>
 
-            <button onClick={logout} className="btn btn-primary" type="submit">logout</button>
+            <button onClick={logout} className="btn btn-primary" type="submit">Logout</button>
 
             <Link to={'/'}>
                 <Image src={logo} className={'header-logo'} />
