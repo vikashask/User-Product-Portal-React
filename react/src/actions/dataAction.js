@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import client,{getOperation, deleteOperation} from "./../utils/restClient";
+import {getOperation, deleteOperation} from "./../utils/restClient";
 
 /* 
 Actions are payloads of information that send data from your application to your store

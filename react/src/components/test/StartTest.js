@@ -37,11 +37,6 @@ class StartTest extends React.Component {
       
     }
     
-      handleSelect(eventKey, event) {
-          // console.log("---",options[eventKey]);
-        // this.setState({ selectedOption: options[eventKey] });
-      }
-
       handleChange = (data) => {
         //console.log('in parent', this.state);
         this.setState({...this.state, ...data}, ()=>{
@@ -64,7 +59,7 @@ class StartTest extends React.Component {
                 <form onSubmit={this.onSubmitTest}>
                 {this.state.question.map(data=>{
                     return(
-                      <EachQuestion data={data} handleChange={this.handleChange}/>
+                      <EachQuestion data={data} handleChange={this.handleChange} key={data._id}/>
                     )
                 })}
                 {/* <label>

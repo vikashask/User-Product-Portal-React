@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import {Image} from "react-bootstrap";
-import logo from './../../../src/logo.svg';
+// import {Link} from "react-router-dom";
+// import {Image} from "react-bootstrap";
+// import logo from './../../../src/logo.svg';
 
 const Createrow = (props) => {
     return props.userList.map(user =>{

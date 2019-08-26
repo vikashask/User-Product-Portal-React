@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Constants from '../../utils/Constants';
+// import * as Constants from '../../utils/Constants';
 
 class EachQuestion extends React.Component { 
       handleChange(e, data){
@@ -10,11 +10,9 @@ class EachQuestion extends React.Component {
       }
 
       render() {
-        // const questionList = this.state.question.map(data=>{
-        // })
           const { data } = this.props;
           return(
-            <div className="jumbotron" key={data._id}>
+            <div className="jumbotron">
             <p>{data.question}</p>
             <p>
               <label>

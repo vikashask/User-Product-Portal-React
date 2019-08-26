@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import Utils from '../../utils/Utils';
+// import { bindActionCreators } from 'redux';
+// import Utils from '../../utils/Utils';
 import * as Constants from '../../utils/Constants';
 import MessageBar from './../shared/MessageBar'
 

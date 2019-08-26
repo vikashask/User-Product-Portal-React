@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../layout/Sidebar';
-import {ButtonToolbar,Dropdown,ButtonGroup,Button,DropdownButton,MenuItem} from "react-bootstrap";
+import {DropdownButton,MenuItem} from "react-bootstrap";
 
 const options = ["Javascript", "Node", "React js", "Angular"];
 
