@@ -1,18 +1,19 @@
 import React from 'react';
 import * as Constants from '../../utils/Constants';
 import EachQuestion from './QuestionList';
+import QuesWithAnsList from './QuesWithAnsList';
 class StartTest extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {
           question: [],
           finalAnswer:[],
+          isTestCompleted:false
           // selectedOption:[]
         };
       }
     componentDidMount = () =>{
-
-      console.log("this.props.location",this.props.location.state.selectedTest);
+      // console.log("this.props.location",this.props.location.state.selectedTest);
       fetch(Constants.baseURL + 'question',
       {
           method: `GET`,
@@ -50,13 +51,13 @@ class StartTest extends React.Component {
         this.state.question.map( q=> {
           let question_id = q._id;
           let answer = q.answer;
-          if(this.state[question_id] === q.answer){
-            finalAnswerArr.push({question_id:question_id,answer:answer});
+          // if(this.state[question_id] === q.answer){
+            finalAnswerArr.push({question_id:question_id,question:q.question,correctAnswer:answer,testAnswer:this.state[question_id]});
             // console.log("final answer",this.state[question_id] , q.answer);
-          }
+          // }
         });
         // console.log("final answer",finalAnswerArr);
-        this.setState({finalAnswer:finalAnswerArr})
+        this.setState({finalAnswer:finalAnswerArr,isTestCompleted:true})
       }
     
       render() {
@@ -65,14 +66,24 @@ class StartTest extends React.Component {
               <div className="container">
                 <h2>Start Test</h2>
                 <hr></hr>
-                <form onSubmit={this.onSubmitTest}>
-                {this.state.question.map(data=>{
+                {!this.state.isTestCompleted && 
+                  <form onSubmit={this.onSubmitTest}>
+                    {this.state.question.map(data=>{
+                        return(
+                          <EachQuestion data={data} handleChange={this.handleChange} key={data._id}/>
+                        )
+                    })}
+                    <input type="submit" value="Submit" className="btn btn-primary"/>
+                  </form>
+                }
+                
+                {
+                  this.state.isTestCompleted && this.state.finalAnswer.map(ans => {
                     return(
-                      <EachQuestion data={data} handleChange={this.handleChange} key={data._id}/>
+                      <QuesWithAnsList finalAnswer={ans}/>
                     )
-                })}
-                <input type="submit" value="Submit" className="btn btn-primary"/>
-                </form>
+                  }) 
+                }
             </div>
           )
       }
