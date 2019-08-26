@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Sidebar from './layout/Sidebar';
-import Createrow from './shared/Createrow';
+// import Createrow from './shared/Createrow';
 import * as Constants from '../utils/Constants';
 import {loadAllData} from "../actions/dataAction"
 import ReactTable from "react-table";
@@ -97,7 +97,6 @@ class User extends Component {
                 Cell: (row)=> (
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                       onClick={() => {
-                          let data = this.state.userList;
                           this.props.history.push(`/edit-user`,{
                             _id:this.state.userList[row.index]._id,
                             email:this.state.userList[row.index].email,
@@ -120,7 +119,7 @@ class User extends Component {
                     <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                           onClick={() => {
                               let data = this.state.userList;
-                          if(localStorage.getItem('token') == this.state.userList[row.index]._id){
+                          if(localStorage.getItem('token') === this.state.userList[row.index]._id){
                             alert("You cann't delete your account");
                           }else{
                               fetch(Constants.baseURL + 'user',

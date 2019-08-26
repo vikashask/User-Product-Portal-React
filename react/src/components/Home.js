@@ -2,8 +2,8 @@ import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Sidebar from '../components/layout/Sidebar';
-import Createrow from '../components/shared/Createrow';
-import * as Constants from '../utils/Constants';
+// import Createrow from '../components/shared/Createrow';
+// import * as Constants from '../utils/Constants';
 import {loadAllData,loadAllProduct, deleteProduct} from "./../actions/dataAction"
 import ReactTable from "react-table";
 import "react-table/react-table.css";
@@ -107,7 +107,7 @@ class Home extends Component {
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                       onClick={() => {
                         //   let data = this.state.productList;
-                          if(localStorage.getItem('token') == productList[row.index].created_by){
+                          if(localStorage.getItem('token') === productList[row.index].created_by){
                               console.log("you can edit");
                                 this.props.history.push(`/edit-product`,{
                                 _id:productList[row.index]._id,
@@ -131,7 +131,7 @@ class Home extends Component {
                     <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                           onClick={() => {
                               console.log("---",productList[row.index]);
-                          if(localStorage.getItem('token') == productList[row.index].created_by){
+                          if(localStorage.getItem('token') === productList[row.index].created_by){
                                 this.props.deleteProduct({productId:productList[row.index]._id,index:row.index});
                                 this.props.loadAllProduct();
                                 }else{

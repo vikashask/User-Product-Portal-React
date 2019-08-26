@@ -11,7 +11,7 @@ const PageNotFound = () => {
         <div style={{textAlign:'center'}}>
             <h1>Page Not Found</h1>
             <div style={style404}>404</div>
-            <img src={'/'} />
+            {/* <img src={'/'} /> */}
         </div>
     );
 };
