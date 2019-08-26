@@ -13,20 +13,30 @@ class EachQuestion extends React.Component {
           return(
             <div className="jumbotron">
             <p>{data.question}</p>
-            <p>
-              <label>
-                <input type="radio" name={data._id} value={data.a} onChange={(e) => this.onSelectQuestion(e, data)}></input>{data.a}
+            <div className="form-check">
+              <input type="radio" className="form-check-input" name={data._id} value={data.a} onChange={(e) => this.onSelectQuestion(e, data)}></input>
+              <label className="form-check-label">
+                {data.a}
               </label>
-              <label>
-              <input type="radio" name={data._id} value={data.b} onChange={(e) => this.onSelectQuestion(e, data)}></input>{data.b}
+            </div>
+            <div className="form-check">
+              <input type="radio" className="form-check-input" name={data._id} value={data.b} onChange={(e) => this.onSelectQuestion(e, data)}></input>
+              <label className="form-check-label">
+                {data.b}
               </label>
-              <label>
-                <input type="radio" name={data._id} value={data.c} onChange={(e) => this.onSelectQuestion(e, data)}></input>{data.c}
+            </div>
+            <div className="form-check">
+              <input type="radio" className="form-check-input" name={data._id} value={data.c} onChange={(e) => this.onSelectQuestion(e, data)}></input>
+              <label className="form-check-label">
+                {data.c}
               </label>
-              <label>
-                <input type="radio" name={data._id} value={data.d} onChange={(e) => this.onSelectQuestion(e,data)}></input>{data.d}
+            </div>
+            <div className="form-check">
+              <input type="radio" className="form-check-input" name={data._id} value={data.d} onChange={(e) => this.onSelectQuestion(e, data)}></input>
+              <label className="form-check-label">
+                {data.d}
               </label>
-            </p>
+            </div>
           </div>
           )
       }
