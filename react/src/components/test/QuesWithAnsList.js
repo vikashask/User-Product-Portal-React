@@ -19,7 +19,8 @@ class QuesWithAnsList extends React.Component {
                You Answered:{finalAnswer.testAnswer}
             </div>
             <div className="alert alert-danger">
-               Correct answer:{finalAnswer.correctAnswer}
+               <h5>Correct answer:{finalAnswer.correctAnswer} <span class="badge badge-secondary">Answer</span></h5>
+               
             </div>
           </div>
           )
