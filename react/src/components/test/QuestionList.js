@@ -12,7 +12,7 @@ class EachQuestion extends React.Component {
           const { data } = this.props;
           return(
             <div className="jumbotron">
-            <p>{data.question}</p>
+            <p>{data.index}. {data.question}</p>
             <div className="form-check">
               <input type="radio" className="form-check-input" name={data._id} value={data.a} onChange={(e) => this.onSelectQuestion(e, data)}></input>
               <label className="form-check-label">
