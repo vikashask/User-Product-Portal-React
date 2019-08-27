@@ -68,7 +68,8 @@ class StartTest extends React.Component {
                 <hr></hr>
                 {!this.state.isTestCompleted && 
                   <form onSubmit={this.onSubmitTest}>
-                    {this.state.question.map(data=>{
+                    {this.state.question.map((data, index)=>{
+                      data.index = index+1;
                         return(
                           <EachQuestion data={data} handleChange={this.handleChange} key={data._id}/>
                         )
@@ -78,9 +79,10 @@ class StartTest extends React.Component {
                 }
                 
                 {
-                  this.state.isTestCompleted && this.state.finalAnswer.map(ans => {
+                  this.state.isTestCompleted && this.state.finalAnswer.map((ans, index) => {
+                    ans.index = index+1;
                     return(
-                      <QuesWithAnsList finalAnswer={ans}/>
+                      <QuesWithAnsList finalAnswer={ans} key={ans.index}/>
                     )
                   }) 
                 }
