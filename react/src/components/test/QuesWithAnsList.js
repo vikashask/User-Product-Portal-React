@@ -13,13 +13,13 @@ class QuesWithAnsList extends React.Component {
           return(
             <div className="jumbotron">
             <div className="alert alert-info">
-               Question:{finalAnswer.question}
+               {finalAnswer.index}. Question:{finalAnswer.question}
             </div>
             <div className={finalAnswer.testAnswer===finalAnswer.correctAnswer?'alert alert-success':'alert alert-danger'}>
                You Answered:{finalAnswer.testAnswer}
             </div>
             <div className="alert alert-danger">
-               <h5>Correct answer:{finalAnswer.correctAnswer} <span class="badge badge-secondary">Answer</span></h5>
+               <h5>Correct answer:{finalAnswer.correctAnswer} <span className="badge badge-secondary">Answer</span></h5>
                
             </div>
           </div>
