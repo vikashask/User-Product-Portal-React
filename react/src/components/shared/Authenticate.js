@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from "./../../components/layout/Header";
 
 class Authenticate extends Component {
 
@@ -9,7 +10,8 @@ class Authenticate extends Component {
     render = () => {
         return(
             <div>
-                Authenticate
+              <Header subtitle="React"/>
+                {/* Authenticate */}
             </div>
         )
     }

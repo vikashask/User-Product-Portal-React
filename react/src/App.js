@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <Router>
           <div>
-              <Header subtitle="React"/>
+              {/* <Header subtitle="React"/> */}
               {/* <Sidebar/> */}
               <div>
                     <div>
