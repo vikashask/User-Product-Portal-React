@@ -47,10 +47,10 @@ class Test extends React.Component {
                 <hr></hr>
                   <div className="row">
                       <div className="col-lg-2">
-                      <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="begginer"></input></p>
+                      <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="Beginner"></input></p>
                       </div>
                       <div className="col-lg-2">
-                      <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="Intermidiate"></input></p>
+                      <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="Intermediate"></input></p>
                       </div>
                       <div className="col-lg-2">
                       <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="Experienced"></input></p>

@@ -1,7 +1,17 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
+/* 
+q_type can be 
+o : objective
+mc : multople choice 
+s : subjective
 
+q_level can be
+0 = beginner
+1 = Intermediate
+3 = Experienced
+*/
 let QuestionSchema = new Schema({
     q_type: { type: String ,default:'o'},
     q_level: { type: String, default:'0' },
