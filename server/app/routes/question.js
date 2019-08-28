@@ -5,6 +5,8 @@ let Question = require('../models/question');
 function getQuestions(req, res) {
     try {
         //Query the DB and if no errors, send all the Users
+        console.log('req.params',req.query);
+        
         let query = Question.find({});
         query.exec((err, Question) => {
             if (err) res.send(err);
