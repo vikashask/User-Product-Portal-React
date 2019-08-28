@@ -15,7 +15,7 @@ import EditProduct from './components/product/EditProduct';
 import ViewProduct from './components/product/ViewProduct';
 import Test from './components/test/Test';
 import StartTest from './components/test/StartTest';
-
+import Authenticate from './components/shared/Authenticate';
 
 class App extends Component {
   render() {
@@ -28,19 +28,19 @@ class App extends Component {
                     <div>
                     <Switch>
                         <Route path='/' component={Login} exact/>
-                        <Route path='/home' component={Home} exact/>
                         <Route path='/register' component={Register} />
-                        
-                        <Route path='/user' component={User} />
-                        <Route path='/edit-user' component={EditUser} />
-                        <Route path='/add-user' component={AddUser} />
-                        
-                        <Route path='/add-product' component={AddProduct} />
-                        <Route path='/edit-product' component={EditProduct} />
-                        <Route path='/view-product' component={ViewProduct} />
-
-                        <Route path='/test' component={Test} />
-                        <Route path='/start-test' component={StartTest} />
+                          <Route path="/" component={Authenticate}>
+                            <Route path='/home' component={Home} exact/>
+                            <Route path='/user' component={User} />
+                            <Route path='/edit-user' component={EditUser} />
+                            <Route path='/add-user' component={AddUser} />
+                            <Route path='/add-product' component={AddProduct} />
+                            <Route path='/edit-product' component={EditProduct} />
+                            <Route path='/view-product' component={ViewProduct} />
+                            <Route path='/test' component={Test} />
+                            <Route path='/start-test' component={StartTest} />
+                        </Route>
+                      
                         <Route component={PageNotFound} />
                     </Switch>
                     </div>
