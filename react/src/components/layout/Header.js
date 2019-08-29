@@ -10,7 +10,7 @@ const Header = (props) => {
     let logout = () =>{
         console.log("logout");
         localStorage.removeItem('token');
-        window.location.href = "http://localhost:3000/";
+        // window.location.href = "http://localhost:3000/";
     }
     return (
         <header className='header'>
