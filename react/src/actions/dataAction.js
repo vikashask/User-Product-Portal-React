@@ -16,6 +16,15 @@ export const loadAllData = (allData) => {
     }
 }
 
+
+export const loadAuthenticate = (isAuthenticate) => {
+    console.log("isAuthenticate",isAuthenticate);
+    return {
+        type: types.GET_IS_AUTHENTICATE,
+        isAuthenticate
+    }
+}
+
 export const loadAllProduct = (allProduct) => {
     
     return async (dispatch) => {
