@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import Utils from '../utils/Utils';
 import * as Constants from '../utils/Constants';
 import MessageBar from '../components/shared/MessageBar'
+import {loadAllData,loadAuthenticate} from "./../actions/dataAction"
 
 class Login extends React.Component { 
     constructor(prpos){
@@ -56,7 +57,8 @@ class Login extends React.Component {
                     res.json().then((response) => {
                         console.log('response',response._id);
                         if(response._id){
-                            localStorage.setItem('token',response._id)
+                            localStorage.setItem('token',response._id);
+                            this.props.loadAuthenticate({token:response._id});
                             this.props.history.push('/home');
                         }else{
                             this.setState({class:'error',errorMsg: 'Invalid login details'});
@@ -68,6 +70,7 @@ class Login extends React.Component {
                 console.log("error----", error);
             });
     }
+    
     register = (event) => {
         event.preventDefault();
         this.props.history.push('/register');
@@ -102,4 +105,12 @@ const mapStateToProps = (state) =>{
     }
 };
 
-export default connect(mapStateToProps)(Login);
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+    loadAllData,
+    loadAuthenticate
+},dispatch);
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+    )(Login);
