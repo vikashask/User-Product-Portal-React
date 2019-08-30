@@ -1,5 +1,6 @@
 export default {
     allData: '',
     allProduct:[],
-    allUser:''
+    allUser:'',
+    isAuthenticate:''
 }
