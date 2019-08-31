@@ -99,7 +99,7 @@ class Register extends React.Component {
           message = <MessageBar errorMsg={this.state.errorMsg} className={this.state.class}/>
         }
         return(
-            <div className="container">
+            <div className="container jumbotron margin-top-login">
                 {message}
                 <form className="form-signin">
                     <h2 className="form-signin-heading">Please sign up</h2>
@@ -114,6 +114,7 @@ class Register extends React.Component {
                     <input type="password" value={this.state.password} onChange={this.passwordChange} className="form-control" placeholder="Password" required />
                     <br></br>
                     <button onClick={this.onRegister} className="btn btn-primary" type="submit">Register</button>
+                    &nbsp;
                     <button onClick={this.login} className="btn btn-default" type="submit">Sign in</button>
                 </form>
             </div>

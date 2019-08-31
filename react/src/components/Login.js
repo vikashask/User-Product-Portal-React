@@ -94,6 +94,7 @@ class Login extends React.Component {
                     <input type="password" id="inputPassword" value={this.state.password} onChange={this.passwordChange} className="form-control" placeholder="Password" required />
                     <br></br>
                     <button onClick={this.login} className="btn btn-primary" type="submit">Sign in</button>
+                    &nbsp;
                     <button onClick={this.register} className="btn btn-default" type="submit">Register</button>
                 </form>
             </div>
