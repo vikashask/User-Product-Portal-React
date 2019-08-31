@@ -23,9 +23,7 @@ class App extends Component {
     return (
       <Router>
           <div>
-              <Header subtitle="React"/>
-              <div>
-                    <div>
+              {/* <Header subtitle="React"/> */}
                     <Switch>
                         <Route path='/' component={Login} exact/>
                         <Route path='/register' component={Register} />
@@ -40,9 +38,6 @@ class App extends Component {
                         <Route path='/start-test' component={StartTest} /> 
                         <Route component={PageNotFound} />
                     </Switch>
-                    </div>
-                </div>
-              
           </div>
       </Router>
   );

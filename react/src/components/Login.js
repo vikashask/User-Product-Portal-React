@@ -83,12 +83,14 @@ class Login extends React.Component {
           message = <MessageBar errorMsg={this.state.errorMsg} className={this.state.class}/>
         }
         return(
-            <div className="container">
+            <div className="container jumbotron margin-top-login">
                 {message}
                 <form className="form-signin">
                     <h2 className="form-signin-heading">Please sign in</h2>
+                    <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" id="inputEmail" value={this.state.email} onChange={this.emailChange} className="form-control" placeholder="Email address" required autoFocus />
                     <br></br>
+                    <label for="inputPassword" class="sr-only">Password</label>
                     <input type="password" id="inputPassword" value={this.state.password} onChange={this.passwordChange} className="form-control" placeholder="Password" required />
                     <br></br>
                     <button onClick={this.login} className="btn btn-primary" type="submit">Sign in</button>

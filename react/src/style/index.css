@@ -1,4 +1,4 @@
-a.activeNavLink {
+/* a.activeNavLink {
     font-weight: bold;
     font-size: 18px;
     list-style-type: none;
@@ -81,4 +81,7 @@ li.nav {
 }
 .text-left{
     text-align: left;
+} */
+.margin-top-login{
+    margin-top: 14%
 }
