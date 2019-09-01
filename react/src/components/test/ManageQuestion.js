@@ -2,11 +2,11 @@ import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Header from "../../components/layout/Header";
-import {loadAllData,loadAllProduct, deleteProduct} from "./../../actions/dataAction"
+import {loadAllData,loadAllQuestion} from "./../../actions/dataAction"
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
-class Home extends Component {
+class ManageQuestion extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -20,14 +20,13 @@ class Home extends Component {
         }
         // this.props.loadAllData({id:12,name:'vikask'});
         // console.log("------",this.props.allQuestion.questionList);
-        this.props.loadAllProduct();
+        this.props.loadAllQuestion();
     }
 
-    addProduct = (event) =>{
+    allQuestion = (event) =>{
         event.preventDefault();
         // console.log("------",this.props.allQuestion.questionList);
-        
-        this.props.history.push('/add-product');
+        this.props.history.push('/add-question');
     }
 
     render(){
@@ -65,8 +64,7 @@ class Home extends Component {
                 Cell: (row)=> (
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                       onClick={() => {
-                              console.log("you can edit");
-                                this.props.history.push(`/view-product`,{
+                                this.props.history.push(`/view-question`,{
                                 _id:questionList[row.index]._id,
                                 name:questionList[row.index].name,
                                 description:questionList[row.index].description,
@@ -87,7 +85,7 @@ class Home extends Component {
                         //   let data = this.state.questionList;
                           if(localStorage.getItem('token') === questionList[row.index].created_by){
                               console.log("you can edit");
-                                this.props.history.push(`/edit-product`,{
+                                this.props.history.push(`/edit-question`,{
                                 _id:questionList[row.index]._id,
                                 name:questionList[row.index].name,
                                 description:questionList[row.index].description,
@@ -110,8 +108,8 @@ class Home extends Component {
                           onClick={() => {
                               console.log("---",questionList[row.index]);
                           if(localStorage.getItem('token') === questionList[row.index].created_by){
-                                this.props.deleteProduct({productId:questionList[row.index]._id,index:row.index});
-                                this.props.loadAllProduct();
+                                this.props.deletequestion({questionId:questionList[row.index]._id,index:row.index});
+                                // this.props.loadAllquestion();
                                 }else{
                                     alert("You are not owner,you haven't permission to delete");
                                 }
@@ -123,8 +121,8 @@ class Home extends Component {
         return(
             <div className="container">
               <Header/>
-              <h2 className="sub-header">product List<br></br>
-              <button onClick={this.addProduct} className="btn btn-primary" type="submit">Add product</button>
+              <h2 className="sub-header">question List<br></br>
+              <button onClick={this.allQuestion} className="btn btn-primary" type="submit">Add question</button>
               </h2>
               <ReactTable
                     data={questionList}
@@ -140,17 +138,17 @@ class Home extends Component {
 const mapStateToProps = (state) => {
 	return {
         allData: state.allData,
-        allQuestion: state.allQuestion.allProduct
+        allQuestion: state.allQuestion.allQuestion,
+        isAuthenticate:state.isAuthenticate
 	}	
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     loadAllData,
-    loadAllProduct,
-    deleteProduct
+    loadAllQuestion,
 }, dispatch);
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Home);
+)(ManageQuestion);
