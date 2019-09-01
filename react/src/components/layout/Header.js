@@ -1,7 +1,5 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-// import {Image} from "react-bootstrap";
-// import logo from './../../../src/logo.svg';
 import PropTypes from 'prop-types';
 
 const Header = (props) => {
@@ -20,13 +18,16 @@ const Header = (props) => {
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav">
             <li className="active">
-              <a href="/home">Home</a>
+              <Link to="/home">Home</Link>
             </li>
             <li>
               <Link to="/user">User</Link>
             </li>
             <li>
               <Link to="/test">Test</Link>
+            </li>
+            <li>
+              <Link to="/manage-question">Manage Question</Link>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
@@ -53,7 +54,7 @@ const Header = (props) => {
     );
 };
 
-Header.propTypes ={
-    logout:PropTypes.func.isRequired
-}
+// Header.propTypes ={
+//     logout:PropTypes.func.isRequired
+// }
 export default Header;

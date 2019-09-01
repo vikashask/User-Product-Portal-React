@@ -1,5 +1,6 @@
 import React from 'react';
-import Sidebar from '../layout/Sidebar';
+// import Sidebar from '../layout/Sidebar';
+import Header from "../layout/Header";
 import {DropdownButton,MenuItem} from "react-bootstrap";
 
 const options = ["Javascript", "Node", "React js", "Angular"];
@@ -30,8 +31,9 @@ class Test extends React.Component {
     
       render() {
           return(
-              <div>
-              <Sidebar/>
+              <div className="container margin-top-login">
+              {/* <Sidebar/> */}
+              <Header/>
                 <div className="jumbotron select_option col-md-10">
                 <DropdownButton
                     title={this.state.selectedTest}
