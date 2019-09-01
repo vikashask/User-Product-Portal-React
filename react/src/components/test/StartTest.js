@@ -66,8 +66,9 @@ class StartTest extends React.Component {
           return(
               <div className="container">
                 <Header/>
-                <h2>Start Test</h2>
-                <hr></hr>
+               
+                <h1 class='sub-header'>Start Test</h1>
+              
                 {!this.state.isTestCompleted && 
                   <form onSubmit={this.onSubmitTest}>
                     {this.state.question.map((data, index)=>{

@@ -122,7 +122,7 @@ class Home extends Component {
         return(
             <div className="container">
               <Header/>
-              <h2 className="sub-header">product List<br></br>
+              <h2 className="sub-header">Product List<br></br>
               <button onClick={this.addProduct} className="btn btn-primary" type="submit">Add product</button>
               </h2>
               <ReactTable

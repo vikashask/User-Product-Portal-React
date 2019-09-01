@@ -99,7 +99,7 @@ class Register extends React.Component {
           message = <MessageBar errorMsg={this.state.errorMsg} className={this.state.class}/>
         }
         return(
-            <div className="container jumbotron margin-top-login">
+            <div className="container jumbotron login-panel margin-top-login">
                 {message}
                 <form className="form-signin">
                     <h2 className="form-signin-heading">Please sign up</h2>
