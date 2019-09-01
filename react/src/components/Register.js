@@ -113,9 +113,16 @@ class Register extends React.Component {
                     <br></br>
                     <input type="password" value={this.state.password} onChange={this.passwordChange} className="form-control" placeholder="Password" required />
                     <br></br>
-                    <button onClick={this.onRegister} className="btn btn-primary" type="submit">Register</button>
+
+                    <div className='form-group'>
+                    <button onClick={this.onRegister} className="btn btn-primary btn-lg btn-block login-btn" type="submit">Register</button>
+                    </div>
+                    <div className='form-group'>
+                    <button onClick={this.login} className="btn btn-default btn-lg btn-block" type="submit">Sing In</button>
+                    </div>
+                    {/* <button onClick={this.onRegister} className="btn btn-primary" type="submit">Register</button>
                     &nbsp;
-                    <button onClick={this.login} className="btn btn-default" type="submit">Sign in</button>
+                    <button onClick={this.login} className="btn btn-default" type="submit">Sign in</button> */}
                 </form>
             </div>
         );

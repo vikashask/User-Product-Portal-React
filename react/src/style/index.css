@@ -82,6 +82,29 @@ li.nav {
 .text-left{
     text-align: left;
 } */
+
 .margin-top-login{
-    margin-top: 14%
+     /* margin-top: 14% ; */
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     -ms-transform: translateX(-50%) translateY(-50%);
+     -webkit-transform: translate(-50%,-50%);
+     transform: translate(-50%,-50%);
+  	
+}
+.form-control{min-height: 40px;}
+.form-signin-heading{text-align: center; margin: 20px 0 !important;     color: #938f8f;}
+.error {
+    border-color: #e91847 !important;
+    padding: 10px !important;
+    font-family: arial !important;
+    text-align: center;
+    
+}
+
+.jumbotron {
+    width: 350px !important;
+    padding:20px !important;
+    border-radius: 6px;
 }
