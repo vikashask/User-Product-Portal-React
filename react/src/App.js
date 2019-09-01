@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import './App.css';
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 import PageNotFound from './components/PageNotFound';
 import Login from './components/Login';
 import Home from './components/Home';
@@ -17,6 +18,8 @@ import Test from './components/test/Test';
 import StartTest from './components/test/StartTest';
 
 import  requireAuth from './utils/requireAuth';
+import AddQuestion from './components/test/AddQuestion';
+import ManageQuestion from './components/test/ManageQuestion';
 
 class App extends Component {
   render() {
@@ -36,8 +39,12 @@ class App extends Component {
                         <Route path='/view-product' component={ViewProduct} />
                         <Route path='/test' component={Test} />
                         <Route path='/start-test' component={StartTest} /> 
+
+                        <Route path='/manage-question' component={ManageQuestion} /> 
+                        <Route path='/add-question' component={AddQuestion} /> 
                         <Route component={PageNotFound} />
                     </Switch>
+              <Footer/>
           </div>
       </Router>
   );
