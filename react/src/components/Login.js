@@ -56,7 +56,7 @@ class Login extends React.Component {
                 if(res.status === 200) {
                     res.json().then((response) => {
                         console.log('response',response);
-                        if(response._id){
+                        if(response && response._id){
                             localStorage.setItem('token',response._id);
                             this.props.loadAuthenticate({token:response._id,isAdmin:response.isAdmin?true:false});
                             this.props.history.push('/home');
