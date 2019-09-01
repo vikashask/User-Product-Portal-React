@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-      <footer className="footer">
+      <footer className="footer navbar navbar-default navbar-fixed-bottom">
         <div className="container">
-          <p className="text-muted"> sticky footer.</p>
+          <h4 className="text-muted">vikash</h4>
         </div>
       </footer>
     );
