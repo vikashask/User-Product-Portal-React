@@ -2,6 +2,7 @@ import React from 'react';
 import * as Constants from '../../utils/Constants';
 import EachQuestion from './QuestionList';
 import QuesWithAnsList from './QuesWithAnsList';
+import Header from "../layout/Header";
 class StartTest extends React.Component { 
     constructor(props) {
         super(props);
@@ -64,6 +65,7 @@ class StartTest extends React.Component {
         // console.log("final answer sta",this.state.finalAnswer);
           return(
               <div className="container">
+                <Header/>
                 <h2>Start Test</h2>
                 <hr></hr>
                 {!this.state.isTestCompleted && 

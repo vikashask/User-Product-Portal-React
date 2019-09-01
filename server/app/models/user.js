@@ -9,6 +9,7 @@ let UserSchema = new Schema({
     age: { type: Number, required: true },
     email:{ type: String, required: true },
     password: { type: String, required: true},
+    isAdmin: { type: Boolean},
 }, {
     versionKey: false
 });

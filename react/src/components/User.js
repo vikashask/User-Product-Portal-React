@@ -1,11 +1,12 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Sidebar from './layout/Sidebar';
+// import Sidebar from './layout/Sidebar';
 // import Createrow from './shared/Createrow';
 import * as Constants from '../utils/Constants';
 import {loadAllData} from "../actions/dataAction"
 import ReactTable from "react-table";
+import Header from "../components/layout/Header";
 import "react-table/react-table.css";
 
 class User extends Component {
@@ -151,8 +152,8 @@ class User extends Component {
              
         ];
         return(
-            <div>
-              <Sidebar/>
+            <div className="container">
+              <Header/>
               <h2 className="sub-header">User List<br></br>
               <button onClick={this.addUser} className="btn btn-primary" type="submit">Add user</button>
               </h2>
