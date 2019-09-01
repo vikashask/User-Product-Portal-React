@@ -28,11 +28,24 @@ export const loadAuthenticate = (isAuthenticate) => {
 export const loadAllProduct = (allProduct) => {
     
     return async (dispatch) => {
-        const repos = await getOperation();
+        const repos = await getOperation('product');
         dispatch({
             type:types.GET_ALL_PRODUCT,
             payload:repos,
         });
+    }
+}
+
+export const loadAllQuestion = (allQuestion) => {
+    
+    return async (dispatch) =>{
+        const repos = await getOperation('question');
+    console.log("--sd--f-sdf-sd--f",repos);
+
+        dispatch({
+            type :types.GET_ALL_QUESTION,
+            payload:repos
+        })
     }
 }
 
