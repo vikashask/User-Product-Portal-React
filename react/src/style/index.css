@@ -103,8 +103,12 @@ li.nav {
     
 }
 
-.jumbotron {
+.login-panel {
     width: 350px !important;
     padding:20px !important;
     border-radius: 6px;
 }
+
+.sub-header{margin-top:55px !important;}
+.dropdown{margin-top:10px;}
+label{margin-left:10px;}

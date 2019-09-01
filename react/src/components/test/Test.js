@@ -31,7 +31,8 @@ class Test extends React.Component {
     
       render() {
           return(
-              <div className="container margin-top-login">
+              <div className="container">
+                <h1 class='sub-header'>Please select your test.</h1>
               {/* <Sidebar/> */}
               <Header/>
                 <div className="jumbotron select_option col-md-10">
@@ -48,13 +49,13 @@ class Test extends React.Component {
                 </DropdownButton>
                 <hr></hr>
                   <div className="row">
-                      <div className="col-lg-2">
+                      <div className="col-lg-4">
                       <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="Beginner"></input></p>
                       </div>
-                      <div className="col-lg-2">
+                      <div className="col-lg-4">
                       <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="Intermediate"></input></p>
                       </div>
-                      <div className="col-lg-2">
+                      <div className="col-lg-4">
                       <p><input className="btn btn-default" onClick={this.startTest.bind(this)} type="button" value="Experienced"></input></p>
                   </div>
                   </div>
