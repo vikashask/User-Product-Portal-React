@@ -1,11 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Image} from "react-bootstrap";
-import logo from './../../../src/logo.svg';
+// import {Image} from "react-bootstrap";
+// import logo from './../../../src/logo.svg';
 import PropTypes from 'prop-types';
 
-// funcion component 
-// passing props
 const Header = (props) => {
 
     let logout = () =>{
@@ -17,22 +15,24 @@ const Header = (props) => {
     <nav className="navbar navbar-default navbar-fixed-top">
       <div className="container">
         <div className="navbar-header">
-          {/* <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </button> */}
-          <a className="navbar-brand" href="#">Project name</a>
+          <Link className="navbar-brand" to="/">Project name</Link>
         </div>
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav">
-            <li className="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li className="active">
+              <a href="/home">Home</a>
+            </li>
+            <li>
+              <Link to="/user">User</Link>
+            </li>
+            <li>
+              <Link to="/test">Test</Link>
+            </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-            <li className="active"><a href="./">Fixed top <span className="sr-only">(current)</span></a></li>
+            <li className="active">
+              <a href="/" onClick={logout}>Logout <span className="sr-only">(current)</span></a>
+              </li>
           </ul>
         </div>
       </div>
@@ -57,4 +57,3 @@ Header.propTypes ={
     logout:PropTypes.func.isRequired
 }
 export default Header;
-
