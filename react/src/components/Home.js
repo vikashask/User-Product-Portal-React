@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Sidebar from '../components/layout/Sidebar';
+import Header from "../components/layout/Header";
 // import Createrow from '../components/shared/Createrow';
 // import * as Constants from '../utils/Constants';
 import {loadAllData,loadAllProduct, deleteProduct} from "./../actions/dataAction"
@@ -21,36 +22,12 @@ class Home extends Component {
             this.props.history.push('/');
         }
         // this.props.loadAllData({id:12,name:'vikask'});
-
         // console.log("------",this.props.allProductData.productList);
-
         this.props.loadAllProduct();
-
-        // fetch(Constants.baseURL + 'product',
-        //     {
-        //         method: `GET`,
-        //         credentials: `include`,
-        //             headers: {
-        //                 'Content-Type': 'application/json',
-        //             }
-        //     }).then((res) => {
-        //         if(res.status === 200) {
-        //             res.json().then((response) => {
-        //                 console.log('response',response);
-        //                 this.setState({productList: response});
-        //                 // putting all data into store
-        //                 this.props.loadAllProduct({productList: response});
-        //             })
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.log("error----", error);
-        //     });
     }
 
     addProduct = (event) =>{
         event.preventDefault();
-        // example to fetch allProduct from store
         // console.log("------",this.props.allProductData.productList);
         
         this.props.history.push('/add-product');
@@ -143,8 +120,8 @@ class Home extends Component {
                     )}
         ];
         return(
-            <div>
-              <Sidebar/>
+            <div className="container">
+              <Header/>
               <h2 className="sub-header">product List<br></br>
               <button onClick={this.addProduct} className="btn btn-primary" type="submit">Add product</button>
               </h2>
