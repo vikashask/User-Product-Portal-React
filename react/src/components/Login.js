@@ -55,10 +55,10 @@ class Login extends React.Component {
             }).then((res) => {
                 if(res.status === 200) {
                     res.json().then((response) => {
-                        console.log('response',response._id);
+                        console.log('response',response);
                         if(response._id){
                             localStorage.setItem('token',response._id);
-                            this.props.loadAuthenticate({token:response._id});
+                            this.props.loadAuthenticate({token:response._id,isAdmin:response.isAdmin?true:false});
                             this.props.history.push('/home');
                         }else{
                             this.setState({class:'error',errorMsg: 'Invalid login details'});
@@ -87,10 +87,10 @@ class Login extends React.Component {
                 {message}
                 <form className="form-signin">
                     <h2 className="form-signin-heading">Please sign in</h2>
-                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <label className="sr-only">Email address</label>
                     <input type="email" id="inputEmail" value={this.state.email} onChange={this.emailChange} className="form-control" placeholder="Email address" required autoFocus />
                     <br></br>
-                    <label for="inputPassword" class="sr-only">Password</label>
+                    <label className="sr-only">Password</label>
                     <input type="password" id="inputPassword" value={this.state.password} onChange={this.passwordChange} className="form-control" placeholder="Password" required />
                     <br></br>
                     <button onClick={this.login} className="btn btn-primary" type="submit">Sign in</button>
