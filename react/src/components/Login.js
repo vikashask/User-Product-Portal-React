@@ -88,14 +88,18 @@ class Login extends React.Component {
                 <form className="form-signin">
                     <h2 className="form-signin-heading">Please sign in</h2>
                     <label className="sr-only">Email address</label>
+                    
                     <input type="email" id="inputEmail" value={this.state.email} onChange={this.emailChange} className="form-control" placeholder="Email address" required autoFocus />
                     <br></br>
                     <label className="sr-only">Password</label>
                     <input type="password" id="inputPassword" value={this.state.password} onChange={this.passwordChange} className="form-control" placeholder="Password" required />
                     <br></br>
-                    <button onClick={this.login} className="btn btn-primary" type="submit">Sign in</button>
-                    &nbsp;
-                    <button onClick={this.register} className="btn btn-default" type="submit">Register</button>
+                    <div className='form-group'>
+                    <button onClick={this.login} className="btn btn-primary btn-lg btn-block login-btn" type="submit">Sign in</button>
+                    </div>
+                    <div className='form-group'>
+                    <button onClick={this.register} className="btn btn-default btn-lg btn-block" type="submit">Register</button>
+                    </div>
                 </form>
             </div>
         );
