@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Utils from '../utils/Utils';
 import * as Constants from '../utils/Constants';
 import MessageBar from './shared/MessageBar'
+import Header from "../components/layout/Header";
 
 class AddUser extends React.Component { 
     constructor(prpos){
@@ -103,8 +104,9 @@ class AddUser extends React.Component {
         return(
             <div className="container">
                 {message}
+                <Header/>
                 <form className="form-signin">
-                    <h2 className="form-signin-heading">Add user</h2>
+                    <h2 className="sub-header">Add user</h2>
                     <input type="text" value={this.state.firstName} onChange={this.firstNameChange} className="form-control" placeholder="Enter first name" required autoFocus />
                     <br></br>
                     <input type="text" value={this.state.lastName} onChange={this.lastNameChange} className="form-control" placeholder="Enter last name" required />
