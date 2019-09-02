@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Header from "../../components/layout/Header";
 
 class ViewProduct extends React.Component { 
     constructor(prpos){
@@ -34,8 +35,9 @@ class ViewProduct extends React.Component {
     render = () => {
         return(
             <div className="container">
+              <Header/>
                 <form className="form-signin">
-                    <h2 className="form-signin-heading">Edit user</h2>
+                    <h2 className="sub-header">View Product</h2>
                     <input type="text" value={this.state.name} className="form-control" readOnly />
                     <br></br>
                     <input type="text" value={this.state.description} className="form-control" readOnly />

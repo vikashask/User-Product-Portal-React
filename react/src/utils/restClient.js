@@ -1,7 +1,7 @@
 import * as Constants from "./../utils/Constants";
 
-export const getOperation = async (url) => (
-    await fetch(Constants.baseURL + 'product', {
+export const getOperation = async (url) => (    
+    await fetch(Constants.baseURL + url, {
         method: `GET`,
         credentials: `include`,
         headers: {

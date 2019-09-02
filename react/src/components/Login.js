@@ -86,7 +86,7 @@ class Login extends React.Component {
             <div className="container jumbotron login-panel margin-top-login">
                 {message}
                 <form className="form-signin">
-                    <h2 className="form-signin-heading">Please sign in</h2>
+                    <h2 className="sub-header">Please sign in</h2>
                     <label className="sr-only">Email address</label>
                     
                     <input type="email" id="inputEmail" value={this.state.email} onChange={this.emailChange} className="form-control" placeholder="Email address" required autoFocus />

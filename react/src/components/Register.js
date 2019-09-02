@@ -102,7 +102,7 @@ class Register extends React.Component {
             <div className="container jumbotron login-panel margin-top-login">
                 {message}
                 <form className="form-signin">
-                    <h2 className="form-signin-heading">Please sign up</h2>
+                    <h2 className="sub-header">Please sign up</h2>
                     <input type="text" value={this.state.firstName} onChange={this.firstNameChange} className="form-control" placeholder="Enter first name" required autoFocus />
                     <br></br>
                     <input type="text" value={this.state.lastName} onChange={this.lastNameChange} className="form-control" placeholder="Enter last name" required />
