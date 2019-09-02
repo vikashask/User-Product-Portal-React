@@ -40,8 +40,6 @@ export const loadAllQuestion = (allQuestion) => {
     
     return async (dispatch) =>{
         const repos = await getOperation('question');
-    console.log("--sd--f-sdf-sd--f",repos);
-
         dispatch({
             type :types.GET_ALL_QUESTION,
             payload:repos

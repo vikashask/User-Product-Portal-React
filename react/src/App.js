@@ -20,6 +20,7 @@ import StartTest from './components/test/StartTest';
 import  requireAuth from './utils/requireAuth';
 import AddQuestion from './components/test/AddQuestion';
 import ManageQuestion from './components/test/ManageQuestion';
+import ViewQuestion from './components/test/ViewQuestion';
 
 class App extends Component {
   render() {
@@ -42,6 +43,7 @@ class App extends Component {
 
                         <Route path='/manage-question' component={ManageQuestion} /> 
                         <Route path='/add-question' component={AddQuestion} /> 
+                        <Route path='/view-question' component={ViewQuestion} /> 
                         <Route component={PageNotFound} />
                     </Switch>
               <Footer/>
