@@ -66,9 +66,16 @@ class ManageQuestion extends Component {
                       onClick={() => {
                                 this.props.history.push(`/view-question`,{
                                 _id:questionList[row.index]._id,
-                                name:questionList[row.index].name,
-                                description:questionList[row.index].description,
-                                price:questionList[row.index].price
+                                question:questionList[row.index].question,
+                                q_type:questionList[row.index].q_type,
+                                q_level:questionList[row.index].q_level,
+                                
+                                a:questionList[row.index].a,
+                                b:questionList[row.index].b,
+                                c:questionList[row.index].c,
+                                d:questionList[row.index].d,
+                                e:questionList[row.index].e,
+                                answer:questionList[row.index].answer
                             })
                         }}>
                           View
