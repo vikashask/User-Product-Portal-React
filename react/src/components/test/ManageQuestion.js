@@ -69,7 +69,6 @@ class ManageQuestion extends Component {
                                 question:questionList[row.index].question,
                                 q_type:questionList[row.index].q_type,
                                 q_level:questionList[row.index].q_level,
-                                
                                 a:questionList[row.index].a,
                                 b:questionList[row.index].b,
                                 c:questionList[row.index].c,
@@ -90,17 +89,18 @@ class ManageQuestion extends Component {
                 <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                       onClick={() => {
                         //   let data = this.state.questionList;
-                          if(localStorage.getItem('token') === questionList[row.index].created_by){
-                              console.log("you can edit");
                                 this.props.history.push(`/edit-question`,{
-                                _id:questionList[row.index]._id,
-                                name:questionList[row.index].name,
-                                description:questionList[row.index].description,
-                                price:questionList[row.index].price
+                                    _id:questionList[row.index]._id,
+                                    question:questionList[row.index].question,
+                                    q_type:questionList[row.index].q_type,
+                                    q_level:questionList[row.index].q_level,
+                                    a:questionList[row.index].a,
+                                    b:questionList[row.index].b,
+                                    c:questionList[row.index].c,
+                                    d:questionList[row.index].d,
+                                    e:questionList[row.index].e,
+                                    answer:questionList[row.index].answer
                             })
-                          }else{
-                              alert("You are not owner,you haven't permission to edit");
-                          }
                         }}>
                           Edit
                         </span> 
