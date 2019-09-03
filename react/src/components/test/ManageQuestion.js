@@ -38,21 +38,21 @@ class ManageQuestion extends Component {
         }
           const columns = [
             {
-                Header: 'q_type',
+                Header: 'Question type',
                 accessor: 'q_type',
                 headerClassName:'text-left'
             },{
-                Header: 'question',
+                Header: 'Question',
                 accessor: 'question',
                 headerClassName:'text-left'
             },
             {
-                Header: 'q_level',
+                Header: 'Question Level',
                 accessor: 'q_level',
                 headerClassName:'text-left'
             },
             {
-                Header: 'answer',
+                Header: 'Answer',
                 accessor: 'answer',
                 headerClassName:'text-left'
             },
