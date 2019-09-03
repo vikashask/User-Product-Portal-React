@@ -32,7 +32,7 @@ class Test extends React.Component {
       render() {
           return(
               <div className="container">
-                <h1 class='sub-header'>Please select your test.</h1>
+                <h1 className='sub-header'>Please select your test.</h1>
               {/* <Sidebar/> */}
               <Header/>
                 <div className="jumbotron select_option col-md-10">
