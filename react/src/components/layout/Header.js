@@ -1,10 +1,15 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import NavBar from '../layout/NavBar';
 
 const Header = (props) => {
 
-    let logout = () =>{
+    let logout = (event) =>{
+      event.preventDefault();
+
+console.log("props------------",this.props);
+
         console.log("logout");
         localStorage.removeItem('token');
         // window.location.href = "http://localhost:3000/";
@@ -17,18 +22,18 @@ const Header = (props) => {
         </div>
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav">
-            <li className="active">
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/user">User</Link>
-            </li>
-            <li>
-              <Link to="/test">Test</Link>
-            </li>
-            <li>
-              <Link to="/manage-question">Manage Question</Link>
-            </li>
+            <NavBar to="/home">
+              Home
+            </NavBar>
+            <NavBar to="/test">
+              Test
+            </NavBar>
+            <NavBar to="/user">
+              User
+            </NavBar>
+            <NavBar to="/manage-question">
+              Manage Question
+            </NavBar>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li className="active">
