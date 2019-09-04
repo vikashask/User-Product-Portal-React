@@ -15,13 +15,16 @@ class StartTest extends React.Component {
       }
     componentDidMount = () =>{
       // console.log("this.props.location",this.props.location.state.selectedTest);
-      fetch(Constants.baseURL + 'question',
+      var url = new URL(Constants.baseURL + 'question'),
+      params = {selectedTest:this.props.location.state.selectedTest, testLevel:this.props.location.state.testLevel}
+      Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+      fetch(url,
       {
           method: `GET`,
           credentials: `include`,
-              headers: {
-                  'Content-Type': 'application/json',
-              }
+            headers: {
+                'Content-Type': 'application/json',
+            }
       }).then((res) => {
           if(res.status === 200) {
               res.json().then((response) => {
