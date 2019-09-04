@@ -15,6 +15,7 @@ q_level can be
 let QuestionSchema = new Schema({
     q_type: { type: String ,default:'o'},
     q_level: { type: String, default:'0' },
+    subject: { type: String, required: true },
     question: { type: String, required: true },
     a: { type: String, required: true },
     b: { type: String },

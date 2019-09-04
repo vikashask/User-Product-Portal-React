@@ -14,7 +14,7 @@ class Test extends React.Component {
       }
     
       handleSelect(eventKey, event) {
-          console.log("---",options[eventKey]);
+          // console.log("---",options[eventKey]);
         this.setState({ selectedTest: options[eventKey] });
       }
 
