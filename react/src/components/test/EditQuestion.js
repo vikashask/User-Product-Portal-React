@@ -8,10 +8,9 @@ class EditQuestion extends React.Component {
         super(prpos);
         this.state = {
             errors: {},
-
         }
         this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.onUpdate = this.onUpdate.bind(this);
     }
 
     componentDidMount = () =>{
@@ -27,16 +26,20 @@ class EditQuestion extends React.Component {
                 c:this.props.location.state.c,
                 d:this.props.location.state.d,
                 e:this.props.location.state.e,
+                subject:this.props.location.state.subject,
             })
         }else{
             this.props.history.push('/home');
         }
     }
     onChange(e) {
+        console.log("[e.target.name]: e.target.value ",[e.target.name], e.target.value );
         this.setState({ [e.target.name]: e.target.value });
     }
-    onSubmit = () =>{
-        this.props.history.push('/manage-question');
+    onUpdate = (event) =>{
+        event.preventDefault();
+        console.log("state value",this.state);
+        // this.props.history.push('/manage-question');
     }
     render = () => {
         return(
@@ -46,22 +49,74 @@ class EditQuestion extends React.Component {
                     <h2 className="sub-header">Edit Question : {this.state._id}</h2>
                     {/* <input type="text" value={this.state.q_type} className="form-control"/> */}
                     <TextFieldGroup
-                        // error={errors.username}
-                        label="Username"
-                        onChange={this.onChange}
-                        checkUserExists={this.checkUserExists}
+                        field="q_type"
                         value={this.state.q_type}
-                        field="username"
+                        label="q_type"
+                        onChange={this.onChange}
                     />
-                    <br></br>
+                    <TextFieldGroup
+                        field="q_level"
+                        value={this.state.q_level}
+                        label="q_level"
+                        onChange={this.onChange}
+                    />
+                    <TextFieldGroup
+                        field="subject"
+                        value={this.state.subject}
+                        label="subject"
+                        onChange={this.onChange}
+                    />
+                    <TextFieldGroup
+                        field="question"
+                        value={this.state.question}
+                        label="question"
+                        onChange={this.onChange}
+                    />
+                    <TextFieldGroup
+                        field="a"
+                        value={this.state.a}
+                        label="a"
+                        onChange={this.onChange}
+                    />
+                    <TextFieldGroup
+                        field="b"
+                        value={this.state.b}
+                        label="b"
+                        onChange={this.onChange}
+                    />
+                    <TextFieldGroup
+                        field="c"
+                        value={this.state.c}
+                        label="c"
+                        onChange={this.onChange}
+                    />
+                    <TextFieldGroup
+                        field="d"
+                        value={this.state.d}
+                        label="d"
+                        onChange={this.onChange}
+                    />
+                    <TextFieldGroup
+                        field="e"
+                        value={this.state.e}
+                        label="e"
+                        onChange={this.onChange}
+                    />
+                    <TextFieldGroup
+                        field="answer"
+                        value={this.state.answer}
+                        label="answer"
+                        onChange={this.onChange}
+                    />
+                    {/* <br></br>
                     <input type="text" value={this.state.q_level} className="form-control"/>
-                    <br></br>
-                    <input type="text" value={this.state.question} className="form-control"/>
+                    <br></br> */}
+                    {/* <input type="text" value={this.state.question} className="form-control"/>
                     <br></br>
 
                     <input type="text" value={this.state.a} className="form-control"/>
-                    <br></br>
-                    <input type="text" value={this.state.b} className="form-control"/>
+                    <br></br> */}
+                    {/* <input type="text" value={this.state.b} className="form-control"/>
                     <br></br>
                     <input type="text" value={this.state.c} className="form-control"/>
                     <br></br>
@@ -69,10 +124,12 @@ class EditQuestion extends React.Component {
                     <input type="text" value={this.state.d} className="form-control"/>
                     <br></br>
                     <input type="text" value={this.state.e} className="form-control"/>
+                    <br></br> */}
+                    {/* <input type="text" value={this.state.answer} className="form-control"/>
+                    <br></br> */}
+                    <button onClick={this.onUpdate} className="btn btn-primary" type="submit">Update</button>
                     <br></br>
-                    <input type="text" value={this.state.answer} className="form-control"/>
-                    <br></br>
-                    <button onClick={this.onGetProduct} className="btn btn-primary" type="submit">See Question List</button>
+
                 </form>
             </div>
         );
