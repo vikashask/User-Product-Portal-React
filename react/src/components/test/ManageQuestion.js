@@ -41,14 +41,20 @@ class ManageQuestion extends Component {
                 Header: 'Question type',
                 accessor: 'q_type',
                 headerClassName:'text-left'
-            },{
-                Header: 'Question',
-                accessor: 'question',
-                headerClassName:'text-left'
             },
             {
                 Header: 'Question Level',
                 accessor: 'q_level',
+                headerClassName:'text-left'
+            },
+            {
+                Header: 'Subject',
+                accessor: 'subject',
+                headerClassName:'text-left'
+            },
+            {
+                Header: 'Question',
+                accessor: 'question',
                 headerClassName:'text-left'
             },
             {
@@ -74,6 +80,7 @@ class ManageQuestion extends Component {
                                 c:questionList[row.index].c,
                                 d:questionList[row.index].d,
                                 e:questionList[row.index].e,
+                                subject:questionList[row.index].subject,
                                 answer:questionList[row.index].answer
                             })
                         }}>
@@ -99,6 +106,7 @@ class ManageQuestion extends Component {
                                     c:questionList[row.index].c,
                                     d:questionList[row.index].d,
                                     e:questionList[row.index].e,
+                                    subject:questionList[row.index].subject,
                                     answer:questionList[row.index].answer
                             })
                         }}>
