@@ -30,6 +30,7 @@ class ViewQuestion extends React.Component {
                 c:this.props.location.state.c,
                 d:this.props.location.state.d,
                 e:this.props.location.state.e,
+                subject:this.props.location.state.subject
             })
         }else{
             this.props.history.push('/home');
@@ -49,6 +50,8 @@ class ViewQuestion extends React.Component {
                     <input type="text" value={this.state.q_type} className="form-control" readOnly />
                     <br></br>
                     <input type="text" value={this.state.q_level} className="form-control" readOnly />
+                    <br></br>
+                    <input type="text" value={this.state.subject} className="form-control" readOnly />
                     <br></br>
                     <input type="text" value={this.state.question} className="form-control" readOnly />
                     <br></br>
