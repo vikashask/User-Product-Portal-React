@@ -1,10 +1,7 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Sidebar from '../components/layout/Sidebar';
 import Header from "../components/layout/Header";
-// import Createrow from '../components/shared/Createrow';
-// import * as Constants from '../utils/Constants';
 import {loadAllData,loadAllProduct, deleteProduct} from "./../actions/dataAction"
 import ReactTable from "react-table";
 import "react-table/react-table.css";
@@ -108,12 +105,15 @@ class Home extends Component {
                     <span style={{cursor:'pointer',color:'blue',textDecoration:'underline'}}
                           onClick={() => {
                               console.log("---",productList[row.index]);
-                          if(localStorage.getItem('token') === productList[row.index].created_by){
+                        let confirmDelete = window.confirm("Do you want to delete product");
+                        if(confirmDelete === true){
+                            if(localStorage.getItem('token') === productList[row.index].created_by){
                                 this.props.deleteProduct({productId:productList[row.index]._id,index:row.index});
                                 this.props.loadAllProduct();
                                 }else{
                                     alert("You are not owner,you haven't permission to delete");
                                 }
+                        }
                             }}>
                               Delete
                             </span> 
