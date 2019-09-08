@@ -45,32 +45,54 @@ class ViewQuestion extends React.Component {
         return(
             <div className="container">
               <Header/>
-                <form className="form-signin">
-                    <h2 className="sub-header">View Question : {this.state._id}</h2>
-                    <input type="text" value={this.state.q_type} className="form-control" readOnly />
-                    <br></br>
-                    <input type="text" value={this.state.q_level} className="form-control" readOnly />
-                    <br></br>
-                    <input type="text" value={this.state.subject} className="form-control" readOnly />
-                    <br></br>
-                    <input type="text" value={this.state.question} className="form-control" readOnly />
-                    <br></br>
-
-                    <input type="text" value={this.state.a} className="form-control" readOnly />
-                    <br></br>
-                    <input type="text" value={this.state.b} className="form-control" readOnly />
-                    <br></br>
-                    <input type="text" value={this.state.c} className="form-control" readOnly />
-                    <br></br>
-
-                    <input type="text" value={this.state.d} className="form-control" readOnly />
-                    <br></br>
-                    <input type="text" value={this.state.e} className="form-control" readOnly />
-                    <br></br>
-                    <input type="text" value={this.state.answer} className="form-control" readOnly />
-                    <br></br>
+              <div>
+              <h2 className="sub-header">View Question : {this.state._id}</h2>
+                <table className="table table-striped table-hover table-responsive">
+                    <tbody>
+                        <tr>
+                            <td className="col-md-3">Question Type</td>
+                            <td>{this.state.q_type}</td>
+                        </tr>  
+                        <tr>
+                            <td>Question Level</td>
+                            <td>{this.state.q_level}</td>
+                        </tr> 
+                        <tr>
+                            <td>Subject</td>
+                            <td>{this.state.subject}</td>
+                        </tr> 
+                        <tr>
+                            <td>Question</td>
+                            <td>{this.state.question}</td>
+                        </tr> 
+                        <tr>
+                            <td>Option A</td>
+                            <td>{this.state.a}</td>
+                        </tr>   
+                        <tr>
+                            <td>Option B</td>
+                            <td>{this.state.b}</td>
+                        </tr> 
+                        <tr>
+                            <td>Option C</td>
+                            <td>{this.state.c}</td>
+                        </tr> 
+                        <tr>
+                            <td>Option D</td>
+                            <td>{this.state.d}</td>
+                        </tr> 
+                        <tr>
+                            <td>Option E</td>
+                            <td>{this.state.e}</td>
+                        </tr> 
+                        <tr className="text-success">
+                            <td><strong> Answer </strong></td>
+                            <td>{this.state.answer}</td>
+                        </tr> 
+                    </tbody>
+                </table>
                     <button onClick={this.onGetProduct} className="btn btn-primary" type="submit">See Question List</button>
-                </form>
+              </div>
             </div>
         );
     }
