@@ -95,6 +95,11 @@ li.nav {
 }
 .form-control{min-height: 40px;}
 .form-signin-heading{text-align: center; margin: 20px 0 !important;     color: #938f8f;}
+.form-signin{
+    margin-top:60px;
+    overflow: auto;   
+    height: 630px;
+}
 .error {
     border-color: #e91847 !important;
     padding: 10px !important;
