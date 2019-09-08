@@ -64,6 +64,14 @@ let editQuestion = async (req, res) => {
             };
             const update = {
                 question: req.body.question,
+                q_type :req.body.q_type,
+                q_level:req.body.q_level,
+                a:req.body.a,
+                b:req.body.b,
+                c:req.body.c,
+                d:req.body.d,
+                e:req.body.e,
+                subject:req.body.subject,
                 answer: req.body.answer
             };
             let doc = await Question.findOneAndUpdate(filter, update);
