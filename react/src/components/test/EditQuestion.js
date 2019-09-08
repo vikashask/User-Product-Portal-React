@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Header from "../layout/Header";
 import TextFieldGroup from '../../utils/TextFieldGroup';
+import * as Constants from '../../utils/Constants';
 
 class EditQuestion extends React.Component { 
     constructor(prpos){
@@ -39,6 +40,39 @@ class EditQuestion extends React.Component {
     onUpdate = (event) =>{
         event.preventDefault();
         console.log("state value",this.state);
+        fetch(Constants.baseURL + 'question',
+            {
+                method: `PUT`,
+                credentials: `include`,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 'question': this.state.question,
+                    'answer':this.state.answer, 
+                    'q_type': this.state.q_type,
+                    '_id':this.state._id ,
+                    'q_level': this.state.q_level,
+                    'subject': this.state.subject,
+                    'a': this.state.a,
+                    'b': this.state.b,
+                    'c': this.state.c,
+                    'd': this.state.d,
+                    'e': this.state.e,
+                })
+            }).then((res) => {
+                if(res.status === 200) {
+                    res.json().then((response) => {
+                        if(response){
+                            this.props.history.push('/manage-question');
+                        }else{
+                            this.setState({class:'error',errorMsg: 'Unable to update'});
+                        }
+                    })
+                }
+            })
+            .catch((error) => {
+                console.log("error----", error);
+            });
         // this.props.history.push('/manage-question');
     }
     render = () => {
