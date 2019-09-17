@@ -16,10 +16,10 @@ class QuesWithAnsList extends React.Component {
                {finalAnswer.index}. Question:{finalAnswer.question}
             </div>
             <div className={finalAnswer.testAnswer===finalAnswer.correctAnswer?'alert alert-success':'alert alert-danger'}>
-               You Answered: {finalAnswer.testAnswer}<span className="badge badge-secondary">{finalAnswer.testAnswer===finalAnswer.correctAnswer?'correct':'incorrect'}</span>
+               You Answered: {finalAnswer.testAnswer} &nbsp; <span className="badge badge-secondary">{finalAnswer.testAnswer===finalAnswer.correctAnswer?'correct':'incorrect'}</span>
             </div>
             <div className="alert alert-danger">
-               Correct answer: {finalAnswer.correctAnswer} <span className="badge badge-secondary">Answer</span>
+               Correct answer: {finalAnswer.correctAnswer} &nbsp; <span className="badge badge-secondary">Answer</span>
             </div>
           </div>
           )
